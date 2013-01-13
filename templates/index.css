@@ -1,0 +1,23 @@
+/* Google Font API */
+@import url(http://fonts.googleapis.com/css?family=Droid+Serif:400,400italic,700|Droid+Sans:700);
+
+/* import framework core */
+@import url("../contrib/YAML/yaml/core/base.min.css");
+
+/* import screen layout */
+@import url("../contrib/YAML/yaml/navigation/hlist.css");
+@import url("../contrib/YAML/yaml/forms/gray-theme.css");
+@import url("../contrib/YAML/yaml/screen/screen-FULLPAGE-layout.css");
+@import url("../contrib/YAML/yaml/screen/typography.css");
+
+/* import print layout */
+@import url("../contrib/YAML/yaml/print/print.css");
+
+
+footer {
+   margin-top: 20px;
+}
+
+textarea {
+   resize:none;
+}

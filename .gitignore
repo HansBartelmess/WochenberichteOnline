@@ -1,0 +1,7 @@
+*.swp
+*.bak
+templates_c/*
+Dokumentation/*
+Datenbank/projektv2.sql
+output/*
+config.php
