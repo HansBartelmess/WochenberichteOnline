@@ -1,9 +1,7 @@
 ﻿{include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
 
-<br>
-{print_r ($azubi)}
-<br>
+
 
 <div id="main">
    <div class="ym-wrapper">
@@ -17,12 +15,18 @@
 	  
 	   <form class="ym-form">
          <h6>Berichte anzeigen</h6>
-      </form>
+         <div class="ym-fbox">
+            <ul>
+               {foreach $reports as $link}
+                  <li><a href="showReports.php?reportNumber={$link.reportNumber}&id={$reports[$activeReport]['user_id']}">{$azubi[0]['surname']} {$azubi[0]['name']} {$link.startDate}</a></li>
+               {/foreach}
+            </ul>
+         </div>  
+      </form> 
 	  
+
       <form class="ym-form" method="post">
-        
-        
-        
+<!--      
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
@@ -45,7 +49,7 @@
             </select>
             </div>
          </div>
-		 
+--!>		 
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
                <div class="ym-fbox-text">
@@ -63,7 +67,7 @@
                   <label for="startDate">für die Zeit vom:</label>
                   <input type="text" name="startDate" id="startDate" value="{$reports[$activeReport]['startDate']}" size="3"/>
                   <div style="float:right;" class="ym-clearfix">
-                     bis: <span id="bis">xx.xx.xxxx</span>
+                     bis: <span id="bis">{getEndDate($activeReport)}</span>
                   </div>
                </div>
                <div class="ym-fbox-text">
