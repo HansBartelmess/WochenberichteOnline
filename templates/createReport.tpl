@@ -8,6 +8,7 @@ $(function() {
 	changeMonth: true,
     changeYear: true,
 	firstDay: 1,
+	maxDate: '0',
 	beforeShowDay: function(date){ return [date.getDay() == 1,""]},
 	
 	onSelect: function(dateText, inst){
