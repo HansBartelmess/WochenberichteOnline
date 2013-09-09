@@ -46,6 +46,21 @@ $reports = R::getAll( 'select * from reports where user_id = 1' );
    echo date("d.m.Y", $nextDay); 
 }
 
+function getEndDateByStart($startDate) {
+$reports = R::getAll( 'select * from reports where user_id = 1' );
+
+   $teile = explode(".", $startDate);
+   $y = $teile[2];
+   $m = $teile[1];
+   $d = $teile[0];
+   $date     = new Datetime();
+   $date->setDate($y, $m, $d);
+   $day2 = $date->format('d.m.Y');
+   $nextDay = strtotime("+4 day", strtotime($day2));
+   echo date("d.m.Y", $nextDay); 
+}
+
+
 
 
 $smarty->display('templates/showReport.tpl');

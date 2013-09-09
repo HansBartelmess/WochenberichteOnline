@@ -18,7 +18,7 @@
          <div class="ym-fbox">
             <ul>
                {foreach $reports as $link}
-                  <li><a href="showReports.php?reportNumber={$link.reportNumber}&id={$reports[$activeReport]['user_id']}">{$azubi[0]['surname']} {$azubi[0]['name']} {$link.startDate}</a></li>
+                  <li><a href="showReports.php?reportNumber={$link.reportNumber}&id={$reports[$activeReport]['user_id']}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$link.startDate} - {getEndDateByStart($link.startDate)}</a></li>
                {/foreach}
             </ul>
          </div>  

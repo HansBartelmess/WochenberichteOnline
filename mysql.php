@@ -1,6 +1,6 @@
 <?php
 require('contrib/RedBeanPHP/rb.php');
-R::setup('mysql:host=localhost;dbname=projektv3','root','');
+R::setup('mysql:host=localhost;dbname=berichtsheftOnline','root','');
 if(isset($_POST["submit"])) {
 
    $reports = R::dispense('reports');
