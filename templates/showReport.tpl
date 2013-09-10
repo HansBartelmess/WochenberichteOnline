@@ -163,20 +163,44 @@ function enable_change(elem) {
          </div>
 
          <div class="ym-full">
-            <div class="ym-fbox-text">
-               <label for="company">Betriebliche Tätigkeit:</label>
-               <textarea name="company" id="company" cols="100" rows="10">{$reports[$activeReport]['company']}</textarea>
+            <div class="ym-g80 ym-gl">
+               <div class="ym-fbox-text">
+                  <label for="company">Betriebliche Tätigkeit:</label>
+                  <textarea name="company" id="company" cols="100" rows="10">{$reports[$activeReport]['company']}</textarea>
+               </div>
             </div>
-            <div class="ym-fbox-text">
-               <label for="training">Themen von Unterweisungen, Lehrgesprächen, betrieblichem Unterricht und außerbetrieblichen Schulungsveranstaltungen:</label>
-               <textarea name="training" id="training" cols="100" rows="10">{$reports[$activeReport]['training']}</textarea>
+               <div class="ym-g20 ym-gl">
+                  <div class="ym-fbox-text">
+                  <label for="noteCompany">Kommentar:</label>
+                  <textarea name="noteCompany" id="noteCompany" cols="100" rows="10">test</textarea>
+               </div>
             </div>
-            <div class="ym-fbox-text">
-               <label for="school">Berufsschule (Themen des Unterrichts in den einzelnen Fächern):</label>
-               <textarea name="school" id="school" cols="100" rows="10">{$reports[$activeReport]['school']}</textarea>
+
+            <div class="ym-g80 ym-gl">
+               <div class="ym-fbox-text">
+                  <label for="training">Themen von Unterweisungen, Lehrgesprächen, betrieblichem Unterricht und außerbetrieblichen Schulungsveranstaltungen:</label>
+                  <textarea name="training" id="training" cols="100" rows="10">{$reports[$activeReport]['training']}</textarea>
+               </div>
             </div>
-         </div>
-         
+               <div class="ym-g20 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="noteTraining">Kommentar:</label>
+                     <textarea name="noteTraining" id="noteTraining" cols="100" rows="10">test</textarea>
+               </div>
+            </div>
+           <div class="ym-g80 ym-gl">
+               <div class="ym-fbox-text">
+                  <label for="school">Berufsschule (Themen des Unterrichts in den einzelnen Fächern):</label>
+                  <textarea name="school" id="school" cols="100" rows="10">{$reports[$activeReport]['school']}</textarea>
+               </div>
+            </div>
+            <div class="ym-g20 ym-gl">
+               <div class="ym-fbox-text">
+                  <label for="noteSchool">Kommentar:</label>
+                  <textarea name="noteSchool" id="noteSchool" cols="100" rows="10">test</textarea>
+               </div>
+            </div>
+         </div>   
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
                <p class="ym-message">
