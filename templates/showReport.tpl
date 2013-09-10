@@ -119,14 +119,14 @@ function enable_change(elem) {
 
 
 		   <div class="ym-grid ym-columnar">
-            <div class="ym-gbox ym-fbox-select">
-            <label for="activeReport">Bericht</label>
-            <select name = "activeReport" id = "activeReport">
-            {foreach $reports as $row}
-               <option value="{$row.id}"> Bericht Nr. {$row.id}</option>
-            {/foreach}
-            </select>
-            </div>
+				<div class="ym-gbox ym-fbox-select">
+					<label for="activeReport">Bericht</label>
+					<select name = "activeReport" id = "activeReport">
+					{foreach $reports as $row}
+						<option value="{$row.id}"> Bericht Nr. {$row.id}</option>
+					{/foreach}
+						</select>
+				</div>
          </div>
 --!>		 
          <div class="ym-grid ym-columnar">
@@ -160,7 +160,7 @@ function enable_change(elem) {
                   <input type="text" name="signDate" id="signDate" value="" size="25"/>
                </div>
             </div>
-         </div>
+         
 
          <div class="ym-full">
             <div class="ym-g80 ym-gl">
@@ -169,12 +169,7 @@ function enable_change(elem) {
                   <textarea name="company" id="company" cols="100" rows="10">{$reports[$activeReport]['company']}</textarea>
                </div>
             </div>
-               <div class="ym-g20 ym-gl">
-                  <div class="ym-fbox-text">
-                  <label for="noteCompany">Kommentar:</label>
-                  <textarea name="noteCompany" id="noteCompany" cols="100" rows="10">test</textarea>
-               </div>
-            </div>
+              
 
             <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
@@ -182,25 +177,15 @@ function enable_change(elem) {
                   <textarea name="training" id="training" cols="100" rows="10">{$reports[$activeReport]['training']}</textarea>
                </div>
             </div>
-               <div class="ym-g20 ym-gl">
-                  <div class="ym-fbox-text">
-                     <label for="noteTraining">Kommentar:</label>
-                     <textarea name="noteTraining" id="noteTraining" cols="100" rows="10">test</textarea>
-               </div>
-            </div>
+               
            <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
                   <label for="school">Berufsschule (Themen des Unterrichts in den einzelnen Fächern):</label>
                   <textarea name="school" id="school" cols="100" rows="10">{$reports[$activeReport]['school']}</textarea>
                </div>
             </div>
-            <div class="ym-g20 ym-gl">
-               <div class="ym-fbox-text">
-                  <label for="noteSchool">Kommentar:</label>
-                  <textarea name="noteSchool" id="noteSchool" cols="100" rows="10">test</textarea>
-               </div>
-            </div>
-         </div>   
+       </div> 
+     </div> 
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
                <p class="ym-message">
@@ -210,12 +195,12 @@ function enable_change(elem) {
             </div>
          {/if}
 
-         <div class="ym-fbox-button">
+		 <div class="ym-fbox-button">
             <button type="submit" id="submit" name="submit" value="submit" class="ym-button ym-save">Änderungen speichern</button>
 			<button type="button" id="pdf" name="pdf" value="pdf" class="ym-button ym-save">PDF erstellen</button>
-         </div>
+          </div> 
     </form>
    </div>
-</div>
+</div></div>
 
 {include file="footer.tpl"}
