@@ -10,9 +10,9 @@ für Betreuer vereinfachen.
 Todo:
 
 
-createMenu umgestalten, Ausbilder und Betreuer createreport nicht anzeigen.
+createMenu in include.php umgestalten, Ausbilder und Betreuer createreport nicht anzeigen.
 
-benötigt functions:
+benötigt functions in include.php:
 
 isBetreuer
 isAusbilder
