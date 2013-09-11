@@ -10,7 +10,9 @@ if (!CheckLogin()) {
 
       $user = R::findOne('user', 'LOWER(username) = ?', array($username));
       if (isset($user) && $user->password == md5($password)) {
-         $userID = R::getcol( 'select "id" from "user" where "username" = '$username );
+
+         //$userID = R::getCell( 'select "id" from "user" where "username" ."=".' $username );
+         //$userID = mysql_query ( 'select "id" from "user" where "username"." = "." $username".'  );
 
          $_SESSION['username'] = $user->username;
          $_SESSION['id'] = $user->id;
