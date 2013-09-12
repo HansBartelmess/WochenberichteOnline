@@ -2,6 +2,13 @@
 require_once('include.php');
 EnsureLogin();
 
+echo $_SESSION['username'];
+echo "<br>";
+echo $_SESSION['id'];
+echo "<br>";
+echo $_SESSION['role'];
+echo "<br>";
+
 $smarty = new Smarty;
 
 CreateMenu($smarty);
@@ -62,7 +69,6 @@ $reports = R::getAll( 'select * from reports where user_id = 1' );
 
 
 
-
 $smarty->display('templates/showReport.tpl');
 R::close();
 
@@ -91,7 +97,15 @@ $(window).load(function () {
 	$("#training").css('background-color', '#D5D5D5')
 	
 	$("#school").prop("disabled", true);
-	$("#school").css('background-color', '#D5D5D5')
+    $("#school").css('background-color', '#D5D5D5')
+
+      $("#noteCompany").prop("disabled", true);
+      $("#noteCompany").css('background-color', '#D5D5D5')
+      $("#noteTraining").prop("disabled", true);
+      $("#noteTraining").css('background-color', '#D5D5D5')
+      $("#noteSchool").prop("disabled", true);
+      $("#noteSchool").css('background-color', '#D5D5D5')
+
   
 });
 
@@ -106,9 +120,6 @@ function enable_change(elem) {
 		$("#division").attr('readonly', false);
 		$("#division").css('background-color', '#FFFFFF');
 		  
-		$("#startDate").attr('readonly', false);
-		$("#startDate").css('background-color', '#FFFFFF')
-	 
 		$("#signDate").attr('readonly', false);
 		$("#signDate").css('background-color', '#FFFFFF')
 			  
@@ -129,10 +140,7 @@ function enable_change(elem) {
 		$("#division").attr('readonly', true);
 		$("#division").css('background-color', '#D5D5D5');
 		  
-		$("#startDate").attr('readonly', true);
-		$("#startDate").css('background-color', '#D5D5D5')
-	 
-		$("#signDate").attr('readonly', true);
+				$("#signDate").attr('readonly', true);
 		$("#signDate").css('background-color', '#D5D5D5')
 			  
 		$("#company").prop("disabled", true);
@@ -142,7 +150,16 @@ function enable_change(elem) {
 		$("#training").css('background-color', '#D5D5D5')
 		
 		$("#school").prop("disabled", true);
-		$("#school").css('background-color', '#D5D5D5')
+      $("#school").css('background-color', '#D5D5D5')
+
+      if ($_SESSION['role'] == "1") {
+         $("#noteCompany").prop("disabled", true);
+         $("#noteCompany").css('background-color', '#D5D5D5')
+         $("#noteTraining").prop("disabled", true);
+         $("#noteTraining").css('background-color', '#D5D5D5')
+         $("#noteSchool").prop("disabled", true);
+         $("#noteSchool").css('background-color', '#D5D5D5')
+      }
 	
 	}
 

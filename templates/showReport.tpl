@@ -26,7 +26,7 @@
 	  
 
       <form class="ym-form" method="post">
-<!--      
+{if ($smarty.session.id == "2" || $smarty.session.id == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
@@ -37,19 +37,8 @@
             </select>
             </div>
          </div>
-
-
-		   <div class="ym-grid ym-columnar">
-				<div class="ym-gbox ym-fbox-select">
-					<label for="activeReport">Bericht</label>
-					<select name = "activeReport" id = "activeReport">
-					{foreach $reports as $row}
-						<option value="{$row.id}"> Bericht Nr. {$row.id}</option>
-					{/foreach}
-						</select>
-				</div>
-         </div>
---!>		 
+{/if}
+		 
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
 			
@@ -92,8 +81,8 @@
 		   </div>
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
-                     <label for="noteTraining">Kommentar:</label>
-                     <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" >test</textarea>
+                     <label for="noteCompany">Kommentar:</label>
+                     <textarea name="noteCompany" id="noteCompany" cols="10" rows="10" >test</textarea>
                </div>
             </div>
 		</div>
@@ -123,8 +112,8 @@
             </div>
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
-                     <label for="noteTraining">Kommentar:</label>
-                     <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" >test</textarea>
+                     <label for="noteSchool">Kommentar:</label>
+                     <textarea name="noteSchool" id="noteSchool" cols="10" rows="10" >test</textarea>
                </div>
             </div>
 			
@@ -141,9 +130,9 @@
          {/if}
 
 		 <div class="ym-fbox-button">
-            <button type="submit" id="submit" name="submit" value="submit" class="ym-button ym-save">Änderungen speichern</button>
+         <button type="submit" id="submit" name="submit" value="submit" class="ym-button ym-save">Änderungen speichern</button>
 			<button type="button" id="pdf" name="pdf" value="pdf" class="ym-button ym-save">PDF erstellen</button>
-          </div> 
+       </div> 
     </form>
    </div>
 </div></div>
