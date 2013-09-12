@@ -1,27 +1,6 @@
 {include file="header.tpl" titel="Bericht Eintragen"}
 {include file="navigation.tpl"}
 
-<script type="text/javascript">
-$(function() {
-    $("#startDate").datepicker({ 
-	dateFormat: 'dd.mm.yy',
-	changeMonth: true,
-    changeYear: true,
-	firstDay: 1,
-	maxDate: '0',
-	beforeShowDay: function(date){ return [date.getDay() == 1,""]},
-	
-	onSelect: function(dateText, inst){
-		var d = $.datepicker.parseDate(inst.settings.dateFormat, dateText);
-		d.setDate(d.getDate()+4);
-    	$("#bis").html($.datepicker.formatDate(inst.settings.dateFormat, d));
-    }
-		
-	});
-	
-  });
-
-</script>
 
 <div id="main">
    <div class="ym-wrapper">
@@ -52,7 +31,7 @@ $(function() {
             <div class="ym-g50 ym-gr">
                <div class="ym-fbox-text">
                   <label for="startDate">für die Zeit vom:<sup class="ym-required">*</sup></label>
-                  <input type="text" name="startDate" id="startDate" size="3" required="required" aria-required="true"'/>
+                  <input type="text" name="startDate" id="startDate" size="3" required="required" aria-required="true"' onchange="validate_date();"/>
                   <div style="float:right;" class="ym-clearfix">
                      bis: <span id="bis"></span>
                   </div>

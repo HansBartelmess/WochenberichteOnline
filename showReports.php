@@ -116,28 +116,28 @@ function enable_change(elem,typ) {
 	
 	if (typ === "2" || typ === "3") {
 		if($(elem).is(':checked')){ 
-			$("#noteCompany").attr('readonly', false);
+			$("#noteCompany").prop("disabled", false);
 			$("#noteCompany").css('background-color', '#FFFFFF');
 			
-			$("#noteTraining").attr('readonly', false);
+			$("#noteTraining").prop("disabled", false);
 			$("#noteTraining").css('background-color', '#FFFFFF');
 			
-			$("#noteSchool").attr('readonly', false);
+			$("#noteSchool").prop("disabled", false);
 			$("#noteSchool").css('background-color', '#FFFFFF');
 			
-			exit();
+			return false;
 		}
 		else {
-			$("#noteCompany").attr('readonly', true);
+			$("#noteCompany").prop("disabled", true);
 			$("#noteCompany").css('background-color', '#D5D5D5');
 			
-			$("#noteTraining").attr('readonly', true);
+			$("#noteTraining").prop("disabled", true);
 			$("#noteTraining").css('background-color', '#D5D5D5');
 			
-			$("#noteSchool").attr('readonly', true);
+			$("#noteSchool").prop("disabled", true);
 			$("#noteSchool").css('background-color', '#D5D5D5');
 			
-			exit();
+			return false;
 		}
 	}
 	

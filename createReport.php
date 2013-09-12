@@ -33,3 +33,29 @@ $smarty->display('templates/createReport.tpl');
 R::close();
 
 ?>
+
+
+
+<script type="text/javascript">
+$(function() {
+    $("#startDate").datepicker({ 
+	dateFormat: 'dd.mm.yy',
+	changeMonth: true,
+    changeYear: true,
+	firstDay: 1,
+	maxDate: '0',
+	beforeShowDay: function(date){ return [date.getDay() == 1,""]},
+	
+	onSelect: function(dateText, inst){
+		var d = $.datepicker.parseDate(inst.settings.dateFormat, dateText);
+		d.setDate(d.getDate()+4);
+    	$("#bis").html($.datepicker.formatDate(inst.settings.dateFormat, d));
+		$("#startDate").attr('readonly', true);
+    }
+		
+	});
+	
+  });
+  
+  
+</script>
