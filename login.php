@@ -13,9 +13,9 @@ if (!CheckLogin()) {
 
          //$userID = R::getCell( 'select "id" from "user" where "username" ."=".' $username );
          //$userID = mysql_query ( 'select "id" from "user" where "username"." = "." $username".'  );
-
          $_SESSION['username'] = $user->username;
          $_SESSION['id'] = $user->id;
+         $_SESSION['role'] = R::getCELL( 'select role from userid_role where user_id = '.$user->id ); 
          $smarty->assign('login', true);
       }
       else {

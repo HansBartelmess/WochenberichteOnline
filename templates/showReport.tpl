@@ -26,7 +26,7 @@
 	  
 
       <form class="ym-form" method="post">
-{if ($smarty.session.id == "2" || $smarty.session.id == "3")}
+	{if ($smarty.session.id == "2" || $smarty.session.id == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
@@ -44,7 +44,7 @@
 			
 			<div class="ym-fbox-text">
                   <label for="change">Bearbeiten:</label>
-                  <input type="checkbox" name="change" id="change" onclick="enable_change(this);"/>
+                  <input type="checkbox" name="change" id="change" onclick="enable_change(this,'{$smarty.session.id}');"/>
                </div>
 			
                <div class="ym-fbox-text">

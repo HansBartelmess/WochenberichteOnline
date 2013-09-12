@@ -101,16 +101,45 @@ $(window).load(function () {
 
       $("#noteCompany").prop("disabled", true);
       $("#noteCompany").css('background-color', '#D5D5D5')
+     
       $("#noteTraining").prop("disabled", true);
       $("#noteTraining").css('background-color', '#D5D5D5')
-      $("#noteSchool").prop("disabled", true);
+      
+	  $("#noteSchool").prop("disabled", true);
       $("#noteSchool").css('background-color', '#D5D5D5')
 
   
 });
 
 
-function enable_change(elem) {
+function enable_change(elem,typ) {
+	
+	if (typ === "2" || typ === "3") {
+		if($(elem).is(':checked')){ 
+			$("#noteCompany").attr('readonly', false);
+			$("#noteCompany").css('background-color', '#FFFFFF');
+			
+			$("#noteTraining").attr('readonly', false);
+			$("#noteTraining").css('background-color', '#FFFFFF');
+			
+			$("#noteSchool").attr('readonly', false);
+			$("#noteSchool").css('background-color', '#FFFFFF');
+			
+			exit();
+		}
+		else {
+			$("#noteCompany").attr('readonly', true);
+			$("#noteCompany").css('background-color', '#D5D5D5');
+			
+			$("#noteTraining").attr('readonly', true);
+			$("#noteTraining").css('background-color', '#D5D5D5');
+			
+			$("#noteSchool").attr('readonly', true);
+			$("#noteSchool").css('background-color', '#D5D5D5');
+			
+			exit();
+		}
+	}
 	
 	if($(elem).is(':checked')){ 
 	
@@ -140,7 +169,7 @@ function enable_change(elem) {
 		$("#division").attr('readonly', true);
 		$("#division").css('background-color', '#D5D5D5');
 		  
-				$("#signDate").attr('readonly', true);
+		$("#signDate").attr('readonly', true);
 		$("#signDate").css('background-color', '#D5D5D5')
 			  
 		$("#company").prop("disabled", true);
