@@ -26,9 +26,8 @@ function EnsureLogin ()
    }
 }
 
-function CreateMenu ($smarty) 
-{
-   if ($_SESSION['role'] == "1") {
+function CreateMenu ($smarty) {
+   if ($_SESSION['role'] == '1') {
       $smarty->assign('navigation', array(
          array('url' => 'createReport.php', 'active' => false,  'name' => 'Bericht eintragen'),
          array('url' => 'showReports.php',   'active' => false, 'name' => 'Berichte ansehen'),
@@ -36,7 +35,7 @@ function CreateMenu ($smarty)
          array('url' => 'logout.php',        'active' => false, 'name' => 'Abmelden')
    ));
 }
-   if ($_SESSION['role'] == "2" || $_SESSION['role'] == "3") {
+if ($_SESSION['role'] == '2' || $_SESSION['role'] == '3') {
       $smarty->assign('navigation', array(
          array('url' => 'showReports.php',   'active' => false, 'name' => 'Berichte ansehen'),
          array('url' => 'preferences.php',   'active' => false, 'name' => 'Einstellungen'),

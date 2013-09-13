@@ -1,13 +1,15 @@
 <?php // Einstiegsseite
 require_once('include.php');
 EnsureLogin();
+echo "Kontrollausgaben:<br>";
+echo "sessionusername: " .$_SESSION['username'];
+echo "<br>";
+echo "sessionid: ".$_SESSION['id'];
+echo "<br>";
+echo "sessionrole: " .$_SESSION['role'];
+echo "<br>";
 
-echo $_SESSION['username'];
-echo "<br>";
-echo $_SESSION['id'];
-echo "<br>";
-echo $_SESSION['role'];
-echo "<br>";
+
 
 $smarty = new Smarty;
 
@@ -34,6 +36,9 @@ $smarty->assign('activeReport', "1");
 $azubi = R::getALL( 'select * from user' );
 $smarty->assign('azubi', $azubi);
 
+$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
+$smarty->assign('azubi2', $azubi2);
+
 $smarty->assign('activeReport', $activeReport);
 $reports = R::getAll( 'select * from reports where user_id = 1' );
 $smarty->assign('reports', $reports);
@@ -41,7 +46,7 @@ $smarty->assign('reports', $reports);
 function getEndDate($activeReport) {
 $reports = R::getAll( 'select * from reports where user_id = 1' );
 
-   $date  = $reports[$activeReport]['startDate'];;
+   $date  = $reports[$activeReport]['startDate'];
    $teile = explode(".", $date);
    $y = $teile[2];
    $m = $teile[1];

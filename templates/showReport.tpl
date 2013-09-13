@@ -1,8 +1,7 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
 
-
-
+{print_r ($azubi2)}
 <div id="main">
    <div class="ym-wrapper">
 
@@ -26,18 +25,18 @@
 	  
 
       <form class="ym-form" method="post">
-	{if ($smarty.session.id == "2" || $smarty.session.id == "3")}
+      {if ($smarty.session.id == "2" || $smarty.session.id == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
             <select name = "azubi" id = "azubi">
-            {foreach $azubi as $row}
+            {foreach $azubi2 as $row}
                <option value="{$row.username}">{$row.name} {$row.surname}</option>
             {/foreach}
             </select>
             </div>
          </div>
-{/if}
+      {/if}
 		 
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
