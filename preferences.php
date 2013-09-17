@@ -5,7 +5,7 @@ EnsureLogin();
 $smarty = new Smarty;
 CreateMenu($smarty);
 
-$user_id=1;
+$user_id=$_SESSION['id'];
 $activeReport = 0;
 $smarty->assign('activeReport', "1");
 
@@ -17,7 +17,7 @@ $smarty->assign('activeReport', $activeReport);
 $reports = R::getAll( 'select * from reports where user_id = 1' );
 $smarty->assign('reports', $reports);
 
-$userstats = R::getAll( 'select * from user where id = 1' );
+$userstats = R::getAll( 'select * from user where id = '.$user_id );
 $smarty->assign('userstats', $userstats);
 
 

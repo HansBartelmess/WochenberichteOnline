@@ -15,7 +15,7 @@ $smarty = new Smarty;
 
 CreateMenu($smarty);
 
-if(isset($_GET['id']) && isset($_GET['reportNumber']) && isset($_POST['id'])) {
+if(isset($_GET['id']) && isset($_GET['reportNumber'])) {
    $reportNumber = $_GET['reportNumber'];
    $activeReport = $reportNumber - 1;
 }
@@ -215,7 +215,7 @@ function enable_change(elem,typ) {
 
 function getval(sel) {
 
-$.azubi({ 
+$.ajax({ 
    url: "showReports.php",
    type: "post",
    data: 'id='+id,
