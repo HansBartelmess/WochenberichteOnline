@@ -81,7 +81,7 @@
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
                      <label for="noteCompany">Kommentar:</label>
-                     <textarea name="noteCompany" id="noteCompany" cols="10" rows="10" >test</textarea>
+                     <textarea name="noteCompany" id="noteCompany" cols="10" rows="10" >{$reports[$activeReport]['noteCompany']}</textarea>
                </div>
             </div>
 		</div>
@@ -97,7 +97,7 @@
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
                      <label for="noteTraining">Kommentar:</label>
-                     <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" >test</textarea>
+                     <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" >{$reports[$activeReport]['noteTraining']}</textarea>
                </div>
             </div>
         
@@ -112,7 +112,7 @@
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
                      <label for="noteSchool">Kommentar:</label>
-                     <textarea name="noteSchool" id="noteSchool" cols="10" rows="10" >test</textarea>
+                     <textarea name="noteSchool" id="noteSchool" cols="10" rows="10" >{$reports[$activeReport]['noteSchool']}</textarea>
                </div>
             </div>
 			

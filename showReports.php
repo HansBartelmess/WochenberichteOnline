@@ -16,8 +16,8 @@ $smarty = new Smarty;
 CreateMenu($smarty);
 
 if(isset($_GET['id']) && isset($_GET['reportNumber'])) {
-   $activeReport = $_GET['reportNumber'];
-   $activeReport = $activeReport - 1;
+   $reportNumber = $_GET['reportNumber'];
+   $activeReport = $reportNumber - 1;
 }
 else
 {
@@ -30,8 +30,17 @@ $activeReport = 0;
 $smarty->assign('activeReport', "1");
 }
 
+/*
+if($_SESSION['role'] = 2 || $_SESSION['role'] = 3 && (isset($_POST['noteCompany']) || isset($_POST['noteTraining']) || isset($_POST['noteSchool'])))  {
 
 
+   $reports = R::dispense('reports');
+   $reports->noteCompany = $_POST['noteCompany'];
+   $reports->noteTraining = $_POST['noteTraining'];
+   $reports->noteSchool = $_POST['noteSchool'];
+}
+ */
+//Datenbankabfragen:
 
 $azubi = R::getALL( 'select * from user' );
 $smarty->assign('azubi', $azubi);
@@ -42,6 +51,11 @@ $smarty->assign('azubi2', $azubi2);
 $smarty->assign('activeReport', $activeReport);
 $reports = R::getAll( 'select * from reports where user_id = 1' );
 $smarty->assign('reports', $reports);
+
+
+
+
+//Functions:
 
 function getEndDate($activeReport) {
 $reports = R::getAll( 'select * from reports where user_id = 1' );
