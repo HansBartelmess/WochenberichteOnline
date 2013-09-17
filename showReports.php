@@ -8,14 +8,14 @@ echo "sessionid: ".$_SESSION['id'];
 echo "<br>";
 echo "sessionrole: " .$_SESSION['role'];
 echo "<br>";
-
-
+echo "POST ID:" .$_POST['id'];
+echo "<br>";
 
 $smarty = new Smarty;
 
 CreateMenu($smarty);
 
-if(isset($_GET['id']) && isset($_GET['reportNumber'])) {
+if(isset($_GET['id']) && isset($_GET['reportNumber']) && isset($_POST['id'])) {
    $reportNumber = $_GET['reportNumber'];
    $activeReport = $reportNumber - 1;
 }
@@ -213,4 +213,53 @@ function enable_change(elem,typ) {
 
 }
 
+function getval(sel) {
+
+$.azubi({ 
+   url: "showReports.php",
+   type: "post",
+   data: 'id='+id,
+   success: function(data){ 
+      load_c('anzeigen');
+      }, 
+   error: function(){ 
+      alert("failure"); 
+      $("#results").html('There is error while submit'); 
+      } 
+});
+}
+function load_c(param) {
+
+   if (param == "eintragen") { 
+      xmlHttpObject.open('get','eintragen_get.php');
+      xmlHttpObject.onreadystatechange = handleContent; 
+      xmlHttpObject.send(null); 
+      return false; 
+   }
+}
+
+function handleContent() { 
+   if (xmlHttpObject.readyState == 4) { 
+      document.getElementById('content').innerHTML = xmlHttpObject.responseText; 
+   } 
+}
+
+var xmlHttpObject = false;
+
+if (typeof XMLHttpRequest != 'undefined') { 
+   xmlHttpObject = new XMLHttpRequest(); 
+} 
+if (!xmlHttpObject) { 
+   try {
+      xmlHttpObject = new ActiveXObject("Msxml2.XMLHTTP"); 
+   } 
+   catch(e) { 
+      try { 
+         xmlHttpObject = new ActiveXObject("Microsoft.XMLHTTP"); 
+      } 
+      catch(e) { 
+         xmlHttpObject = null; 
+      } 
+   } 
+}
 </script>

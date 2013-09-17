@@ -29,7 +29,7 @@
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
-            <select name = "azubi" id = "azubi">
+            <select onchange="getval(this);" name = "azubi" id = "azubi">
             {foreach $azubi2 as $row}
                <option value="{$row.username}">{$row.name} {$row.surname}</option>
             {/foreach}
