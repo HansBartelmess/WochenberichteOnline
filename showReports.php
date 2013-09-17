@@ -8,7 +8,7 @@ echo "sessionid: ".$_SESSION['id'];
 echo "<br>";
 echo "sessionrole: " .$_SESSION['role'];
 echo "<br>";
-echo "POST ID:" .$_POST['id'];
+echo "POST company:" .$_POST['company'];
 echo "<br>";
 
 $smarty = new Smarty;
@@ -31,7 +31,7 @@ $smarty->assign('activeReport', "1");
 }
 
 /*
-if($_SESSION['role'] = 2 || $_SESSION['role'] = 3 && (isset($_POST['noteCompany']) || isset($_POST['noteTraining']) || isset($_POST['noteSchool'])))  {
+if(($_SESSION['role'] = 2 || $_SESSION['role'] = 3) && (isset($_POST['noteCompany']) || isset($_POST['noteTraining']) || isset($_POST['noteSchool'])))  {
 
 
    $reports = R::dispense('reports');
@@ -213,21 +213,21 @@ function enable_change(elem,typ) {
 
 }
 
-function getval(sel) {
+
 
 $.ajax({ 
-   url: "showReports.php",
+   url: "showReports_insert.php",
    type: "post",
-   data: 'id='+id,
+   data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate,
    success: function(data){ 
-      load_c('anzeigen');
+      alert(data);
       }, 
    error: function(){ 
       alert("failure"); 
       $("#results").html('There is error while submit'); 
       } 
 });
-}
+
 function load_c(param) {
 
    if (param == "eintragen") { 
