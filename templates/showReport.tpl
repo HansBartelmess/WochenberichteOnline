@@ -1,7 +1,6 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
 
-{print_r ($azubi2)}
 <div id="main">
    <div class="ym-wrapper">
 
@@ -129,7 +128,7 @@
          {/if}
 
 		 <div class="ym-fbox-button">
-         <button type="button" id="submit" name="submit" value="submit" class="ym-button ym-save" onclick="getval()">Änderungen speichern</button>
+         <button type="button" id="submit" name="submit" value="submit" class="ym-button ym-save" onclick="getval('{$smarty.session.id}')">Änderungen speichern</button>
 			<button type="button" id="pdf" name="pdf" value="pdf" class="ym-button ym-save">PDF erstellen</button>
        </div> 
     </form>

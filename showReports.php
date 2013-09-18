@@ -213,58 +213,61 @@ function enable_change(elem,typ) {
 
 
 
-function getval() {
-var company = $("#company").val();
-var division = $("#division").val();
-var training = $("#training").val();
-var school = $("#school").val();
-var reportNumber = $("#reportNumber").val();
-var startDate = $("#startDate").val();
+function getval(param) {
 
-$.ajax({ 
-   url: "showReports_insert.php",
-   type: "post",
-   data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate,
-   success: function(data){ 
-		$("#reportNumber").attr('readonly', true);
-		$("#reportNumber").css('background-color', '#D5D5D5');
-		  
-		$("#division").attr('readonly', true);
-		$("#division").css('background-color', '#D5D5D5');
-		  
-		$("#signDate").attr('readonly', true);
-		$("#signDate").css('background-color', '#D5D5D5')
+if (param == "1") {
+	
+	var company = $("#company").val();
+	var division = $("#division").val();
+	var training = $("#training").val();
+	var school = $("#school").val();
+	var reportNumber = $("#reportNumber").val();
+	var startDate = $("#startDate").val();
+
+	$.ajax({ 
+	   url: "showReports_insert.php",
+	   type: "post",
+	   data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate,
+	   success: function(data){ 
+			$("#reportNumber").attr('readonly', true);
+			$("#reportNumber").css('background-color', '#D5D5D5');
 			  
-		$("#company").prop("disabled", true);
-		$("#company").css('background-color', '#D5D5D5')
-		
-		$("#training").prop("disabled", true);
-		$("#training").css('background-color', '#D5D5D5')
-		
-		$("#school").prop("disabled", true);
-		$("#school").css('background-color', '#D5D5D5')
-   
-   
-   }, 
-   error: function(){ 
-      alert("failure"); 
-      $("#results").html('There is error while submit'); 
-      } 
-});
-}
-
-function getval2() {
-var company = $("#noteCompany").val();
-var training = $("#noteTraining").val();
-var school = $("#noteSchool").val();
-var reportNumber = $("#reportNumber").val();
-var startDate = $("#startDate").val();
-
-$.ajax({ 
-   url: "showReports_insert.php",
-   type: "post",
-   data: 'noteCompany='+noteCompany+'&noteTraining='+noteTraining+'&noteSchool='+noteSchool+'&reportNumber='+reportNumber+'&startDate='+startDate,
-   success: function(data){ 
+			$("#division").attr('readonly', true);
+			$("#division").css('background-color', '#D5D5D5');
+			  
+			$("#signDate").attr('readonly', true);
+			$("#signDate").css('background-color', '#D5D5D5')
+				  
+			$("#company").prop("disabled", true);
+			$("#company").css('background-color', '#D5D5D5')
+			
+			$("#training").prop("disabled", true);
+			$("#training").css('background-color', '#D5D5D5')
+			
+			$("#school").prop("disabled", true);
+			$("#school").css('background-color', '#D5D5D5')
+	   
+	   
+	   }, 
+	   error: function(){ 
+	      alert("failure"); 
+	      $("#results").html('There is error while submit'); 
+	      } 
+	});
+	
+	}
+	
+	if (param == "2" || param == "3") {
+		var noteCompany = $("#noteCompany").val();
+		var noteTraining = $("#noteTraining").val();
+		var noteSchool = $("#noteSchool").val();
+		var reportNumber = $("#reportNumber").val();
+		var startDate = $("#startDate").val();
+		$.ajax({ 
+		   url: "showReports_insert2.php",
+		   type: "post",
+		   data: 'noteCompany='+noteCompany+'&noteTraining='+noteTraining+'&noteSchool='+noteSchool+'&reportNumber='+reportNumber+'&startDate='+startDate,
+		   success: function(data){ 
 	  
 		$("#noteCompany").prop("disabled", true);
 		$("#noteCompany").css('background-color', '#D5D5D5')
@@ -282,7 +285,13 @@ $.ajax({
       $("#results").html('There is error while submit'); 
       } 
 });
+
+		
+	}
+	
 }
+
+
 
 function handleContent() { 
    if (xmlHttpObject.readyState == 4) { 
