@@ -8,8 +8,6 @@ echo "sessionid: ".$_SESSION['id'];
 echo "<br>";
 echo "sessionrole: " .$_SESSION['role'];
 echo "<br>";
-echo "POST company:" .$_POST['company'];
-echo "<br>";
 
 $smarty = new Smarty;
 
@@ -247,7 +245,7 @@ $.ajax({
 		$("#school").css('background-color', '#D5D5D5')
    
    
-      }, 
+   }, 
    error: function(){ 
       alert("failure"); 
       $("#results").html('There is error while submit'); 
@@ -255,6 +253,36 @@ $.ajax({
 });
 }
 
+function getval2() {
+var company = $("#noteCompany").val();
+var training = $("#noteTraining").val();
+var school = $("#noteSchool").val();
+var reportNumber = $("#reportNumber").val();
+var startDate = $("#startDate").val();
+
+$.ajax({ 
+   url: "showReports_insert.php",
+   type: "post",
+   data: 'noteCompany='+noteCompany+'&noteTraining='+noteTraining+'&noteSchool='+noteSchool+'&reportNumber='+reportNumber+'&startDate='+startDate,
+   success: function(data){ 
+	  
+		$("#noteCompany").prop("disabled", true);
+		$("#noteCompany").css('background-color', '#D5D5D5')
+		
+		$("#noteTraining").prop("disabled", true);
+		$("#noteTraining").css('background-color', '#D5D5D5')
+		
+		$("#noteSchool").prop("disabled", true);
+		$("#noteSchool").css('background-color', '#D5D5D5')
+   
+   
+      }, 
+   error: function(){ 
+      alert("failure"); 
+      $("#results").html('There is error while submit'); 
+      } 
+});
+}
 
 function handleContent() { 
    if (xmlHttpObject.readyState == 4) { 
