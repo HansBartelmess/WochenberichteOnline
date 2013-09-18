@@ -198,7 +198,7 @@ function enable_change(elem,typ) {
 		$("#training").css('background-color', '#D5D5D5')
 		
 		$("#school").prop("disabled", true);
-      $("#school").css('background-color', '#D5D5D5')
+		$("#school").css('background-color', '#D5D5D5')
 
       if ($_SESSION['role'] == "1") {
          $("#noteCompany").prop("disabled", true);
@@ -215,28 +215,46 @@ function enable_change(elem,typ) {
 
 
 
+function getval() {
+var company = $("#company").val();
+var division = $("#division").val();
+var training = $("#training").val();
+var school = $("#school").val();
+var reportNumber = $("#reportNumber").val();
+var startDate = $("#startDate").val();
+
 $.ajax({ 
    url: "showReports_insert.php",
    type: "post",
    data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate,
    success: function(data){ 
-      alert(data);
+		$("#reportNumber").attr('readonly', true);
+		$("#reportNumber").css('background-color', '#D5D5D5');
+		  
+		$("#division").attr('readonly', true);
+		$("#division").css('background-color', '#D5D5D5');
+		  
+		$("#signDate").attr('readonly', true);
+		$("#signDate").css('background-color', '#D5D5D5')
+			  
+		$("#company").prop("disabled", true);
+		$("#company").css('background-color', '#D5D5D5')
+		
+		$("#training").prop("disabled", true);
+		$("#training").css('background-color', '#D5D5D5')
+		
+		$("#school").prop("disabled", true);
+		$("#school").css('background-color', '#D5D5D5')
+   
+   
       }, 
    error: function(){ 
       alert("failure"); 
       $("#results").html('There is error while submit'); 
       } 
 });
-
-function load_c(param) {
-
-   if (param == "eintragen") { 
-      xmlHttpObject.open('get','eintragen_get.php');
-      xmlHttpObject.onreadystatechange = handleContent; 
-      xmlHttpObject.send(null); 
-      return false; 
-   }
 }
+
 
 function handleContent() { 
    if (xmlHttpObject.readyState == 4) { 
