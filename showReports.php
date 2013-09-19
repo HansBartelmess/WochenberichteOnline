@@ -226,7 +226,24 @@ function enable_change(elem,typ) {
 
 }
 
-
+function getvalue(param, typ) {
+   if (typ == "2") {
+      var username = $("#username").value();
+      $.ajax({ 
+	      url: "getReports2.php",
+	      type: "post",
+	      data: 'username='+username,
+	      success:
+   }
+   if (typ == "3") {
+      var username = $("#username").value();
+      $.ajax({ 
+	      url: "getReports.php",
+	      type: "post",
+	      data: 'username='+username,
+	      success:
+   }
+}
 
 function getval(param) {
 
