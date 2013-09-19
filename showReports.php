@@ -10,6 +10,8 @@ echo "sessionrole: " .$_SESSION['role'];
 echo "<br>";
 echo "sessionjobid: " .$_SESSION['jobid'];
 echo "<br>";
+echo "sessiondept: " .$_SESSION['dept'];
+echo "<br>";
 
 $smarty = new Smarty;
 
@@ -38,19 +40,20 @@ $azubi = R::getALL( 'select * from user' );
 $smarty->assign('azubi', $azubi);
 
 //$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
-
+/*
 function getBerichte(role) {
-   if($SESSION_['role'] == 2){
-      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .' && ');
+   if($_SESSION['role'] == 2){
+      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'');
+
+   }
+   elseif($SESSION['role'] == 3){
+      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
    
    }
-   elseif($SESSION_['role'] == 3){
-      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
 
-   }
 
 }
-
+ */
 
 $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
 
@@ -58,7 +61,7 @@ $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, us
 $smarty->assign('azubi2', $azubi2);
 
 $smarty->assign('activeReport', $activeReport);
-$reports = R::getAll( 'select * from reports where user_id = 1' );
+$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
 $smarty->assign('reports', $reports);
 
 
