@@ -61,7 +61,8 @@ $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, us
 $smarty->assign('azubi2', $azubi2);
 
 $smarty->assign('activeReport', $activeReport);
-$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
+//$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
+$reports = R::getAll( 'select * from reports where user_id = 1' );
 $smarty->assign('reports', $reports);
 
 
