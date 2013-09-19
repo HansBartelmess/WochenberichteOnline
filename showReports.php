@@ -234,7 +234,9 @@ function getvalue(param, typ) {
 	      type: "post",
 	      data: 'username='+username,
 	      success:
+      }
    }
+
    if (typ == "3") {
       var username = $("#username").value();
       $.ajax({ 
@@ -242,8 +244,10 @@ function getvalue(param, typ) {
 	      type: "post",
 	      data: 'username='+username,
 	      success:
+      }
    }
 }
+
 
 function getval(param) {
 
