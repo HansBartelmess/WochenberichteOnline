@@ -8,6 +8,8 @@ echo "sessionid: ".$_SESSION['id'];
 echo "<br>";
 echo "sessionrole: " .$_SESSION['role'];
 echo "<br>";
+echo "sessionjobid: " .$_SESSION['jobid'];
+echo "<br>";
 
 $smarty = new Smarty;
 
@@ -28,22 +30,18 @@ $activeReport = 0;
 $smarty->assign('activeReport', "1");
 }
 
-/*
-if(($_SESSION['role'] = 2 || $_SESSION['role'] = 3) && (isset($_POST['noteCompany']) || isset($_POST['noteTraining']) || isset($_POST['noteSchool'])))  {
 
 
-   $reports = R::dispense('reports');
-   $reports->noteCompany = $_POST['noteCompany'];
-   $reports->noteTraining = $_POST['noteTraining'];
-   $reports->noteSchool = $_POST['noteSchool'];
-}
- */
 //Datenbankabfragen:
 
 $azubi = R::getALL( 'select * from user' );
 $smarty->assign('azubi', $azubi);
 
-$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
+//$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
+
+$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'&& user.jobid = '. $_SESSION['jobid'] .'' );
+
+
 $smarty->assign('azubi2', $azubi2);
 
 $smarty->assign('activeReport', $activeReport);

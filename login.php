@@ -13,6 +13,7 @@ if (!CheckLogin()) {
          $_SESSION['username'] = $user->username;
          $_SESSION['id'] = $user->id;
          $_SESSION['role'] = R::getCELL( 'select role from userid_role where user_id = '.$user->id ); 
+         $_SESSION['jobid'] = $user->jobid;
          $smarty->assign('login', true);
       }
       else {
