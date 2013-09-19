@@ -225,7 +225,7 @@ function enable_change(elem,typ) {
 	}
 
 }
-
+/*
 function getvalue(param, typ) {
    if (typ == "2") {
       var username = $("#username").value();
@@ -233,7 +233,7 @@ function getvalue(param, typ) {
 	      url: "getReports2.php",
 	      type: "post",
 	      data: 'username='+username,
-	      success:
+	      success: alert();
       }
    }
 
@@ -243,10 +243,36 @@ function getvalue(param, typ) {
 	      url: "getReports.php",
 	      type: "post",
 	      data: 'username='+username,
-	      success:
+	      success: alert();
       }
    }
 }
+ */
+
+$('select').on('change', function() {
+      var username = $("#username").val();
+      if (<?php $_SESSION['role'] ?> == "2") {
+      $.ajax({ 
+	      url: "getReports2.php",
+	      type: "post",
+	      data: 'username='+username,
+         success: function(data){
+            alert(data);
+         }
+   })
+}
+if (<?php $_SESSION['role'] ?>== "3") {
+      $.ajax({ 
+	      url: "getReports.php",
+	      type: "post",
+	      data: 'username='+username,
+         success: function(data){
+            alert(data);
+         }
+      })
+   }
+})
+
 
 
 function getval(param) {
