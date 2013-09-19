@@ -39,7 +39,20 @@ $smarty->assign('azubi', $azubi);
 
 //$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
 
-$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'&& user.jobid = '. $_SESSION['jobid'] .'' );
+function getBerichte(role) {
+   if($SESSION_['role'] == 2){
+      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .' && ');
+   
+   }
+   elseif($SESSION_['role'] == 3){
+      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
+
+   }
+
+}
+
+
+$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
 
 
 $smarty->assign('azubi2', $azubi2);

@@ -24,7 +24,7 @@
 	  
 
       <form class="ym-form" method="post">
-      {if ($smarty.session.id == "2" || $smarty.session.id == "3")}
+      {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
