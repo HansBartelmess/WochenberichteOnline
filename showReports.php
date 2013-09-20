@@ -215,7 +215,7 @@ function enable_change(elem,typ) {
 		$("#school").prop("disabled", true);
 		$("#school").css('background-color', '#D5D5D5')
 
-      if ($_SESSION['role'] == "1") {
+         if ("<?php echo $_SESSION['role'];?>" == "1") {
          $("#noteCompany").prop("disabled", true);
          $("#noteCompany").css('background-color', '#D5D5D5')
          $("#noteTraining").prop("disabled", true);
