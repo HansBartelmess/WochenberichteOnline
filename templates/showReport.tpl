@@ -13,13 +13,27 @@
 	  
 	   <form class="ym-form">
          <h6>Berichte anzeigen</h6>
+         <!--
          <div class="ym-fbox">
             <ul>
                {foreach $reports as $link}
                   <li><a href="showReports.php?reportNumber={$link.reportNumber}&id={$reports[$activeReport]['user_id']}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$link.startDate} - {getEndDateByStart($link.startDate)}</a></li>
                {/foreach}
             </ul>
-         </div>  
+         </div> 
+         -->
+         <div class="ym-grid ym-columnar">
+            <div class="ym-gbox ym-fbox-select">
+            <label for="reports">Azubi</label>
+            <select name = "reports" id = "reports">
+            {foreach $reports as $row}
+               <option value="{$reports[$activeReport]['user_id']}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$link.startDate} - {getEndDateByStart($link.startDate)}</option>
+            {/foreach}
+            </select>
+            </div>
+         </div>
+
+
       </form> 
 	  
 
