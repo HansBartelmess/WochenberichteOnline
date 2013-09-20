@@ -13,6 +13,8 @@ echo "<br>";
 echo "sessiondept: " .$_SESSION['dept'];
 echo "<br>";
 
+
+
 $smarty = new Smarty;
 
 CreateMenu($smarty);
@@ -250,18 +252,21 @@ function getvalue(param, typ) {
  */
 
 $('select').on('change', function() {
+      var sessrole = <?php echo $_SESSION['role'];?>;
+      var sessjobid = <?php echo $_SESSION['jobid'];?>; 
+      var sessdept = "<?php echo $_SESSION['dept'];?>";
       var username = $("#username").val();
-      if (<?php $_SESSION['role'] ?> == "2") {
+      if (sessrole == "2") {
       $.ajax({ 
 	      url: "getReports2.php",
 	      type: "post",
-	      data: 'username='+username,
+	      data: 'username='+username+'&sessrole='+sessrole+'&sessjobid='+sessjobid+'&sessdept='+sessdept,
          success: function(data){
             alert(data);
          }
-   })
-}
-if (<?php $_SESSION['role'] ?>== "3") {
+      })
+   }
+if ( sessrole == "3") {
       $.ajax({ 
 	      url: "getReports.php",
 	      type: "post",
