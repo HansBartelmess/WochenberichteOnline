@@ -1,6 +1,6 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
-
+{print_r($azubi)}
 <div id="main">
    <div class="ym-wrapper">
 
@@ -43,7 +43,7 @@
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
             <select name = "azubi" id = "azubi">
-            {foreach $azubi2 as $row}
+            {foreach $azubi as $row}
                <option value="{$row.username}">{$row.name} {$row.surname}</option>
             {/foreach}
             </select>

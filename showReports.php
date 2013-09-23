@@ -37,10 +37,10 @@ $smarty->assign('activeReport', "1");
 
 
 //Datenbankabfragen:
-
+/*
 $azubi = R::getALL( 'select * from user' );
 $smarty->assign('azubi', $azubi);
-
+ */
 //$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
 /*
 function getBerichte(role) {
@@ -57,11 +57,24 @@ function getBerichte(role) {
 }
  */
 
+
+if($_SESSION['role'] == 2) {
+      $azubi = R::getall('SELECT user.id, user.username, user.name, user.surname, userid_role.role, reports.user_id, reports.division FROM user user, userid_role userid_role, reports reports WHERE user.id = userid_role.user_id && userid_role.role ='. 1 .' && user.jobid = '. $_SESSION['jobid'] .' && reports.division = '. $_SESSION['dept'] .'' );
+}
+elseif($_SESSION['role'] == 3) {
+       $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
+}
+$smarty->assign('azubi', $azubi);
+
+
+
+
+/*
 $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
 
 
 $smarty->assign('azubi2', $azubi2);
-
+ */
 $smarty->assign('activeReport', $activeReport);
 //$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
 $reports = R::getAll( 'select * from reports where user_id = 1' );
@@ -146,7 +159,7 @@ $(window).load(function () {
 });
 
 
-function enable_change(elem,typ) {
+function enable_change(elem,typ) i{
 	
 	if (typ === "2" || typ === "3") {
 		if($(elem).is(':checked')){ 
