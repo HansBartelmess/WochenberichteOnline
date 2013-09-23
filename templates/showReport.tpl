@@ -56,7 +56,7 @@
 			
 			<div class="ym-fbox-text">
                   <label for="change">Bearbeiten:</label>
-                  <input type="checkbox" name="change" id="change" onclick="enable_change(this,'{$smarty.session.id}');"/>
+                  <input type="checkbox" name="change" id="change" onclick="enable_change(this,'{$smarty.session.role}');"/>
                </div>
 			
                <div class="ym-fbox-text">
