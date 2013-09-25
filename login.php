@@ -14,7 +14,7 @@ if (!CheckLogin()) {
          $_SESSION['id'] = $user->id;
          $_SESSION['role'] = R::getCELL( 'select role from userid_role where user_id = '.$user->id ); 
          $_SESSION['jobid'] = $user->jobid;
-         if ($_SESSION['role'] == 2) {
+         if ($_SESSION['role'] == 2 || $_SESSION['role'] == 3) {
             $_SESSION['dept'] = R::getCELL( 'select dept from userid_dept where user_id = '.$user->id );
          }
          $smarty->assign('login', true);
