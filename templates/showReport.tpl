@@ -24,7 +24,7 @@
          -->
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
-            <label for="reports">Azubi</label>
+            <label for="reports">Berichte</label>
             <select name = "reports" id = "reports">
             {foreach $reports as $row}
                <option value="{$row.reportNumber}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>

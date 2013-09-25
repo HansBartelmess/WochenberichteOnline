@@ -270,11 +270,11 @@ function getvalue(param, typ) {
 }
  */
 
-$('select').on('change', function() {
+$('#azubi').on('change', function() {
       var sessrole = <?php echo $_SESSION['role'];?>;
       var sessjobid = <?php echo $_SESSION['jobid'];?>; 
       var sessdept = "<?php echo $_SESSION['dept'];?>";
-      var username = $("#username").val();
+      var username = $("#azubi").val();
       if (sessrole == "2") {
       $.ajax({ 
 	      url: "getReports2.php",
