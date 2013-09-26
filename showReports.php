@@ -80,10 +80,11 @@ $smarty->assign('activeReport', $activeReport);
 //$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
 if($_SESSION['role'] == "1") {
    $reports = R::getAll( 'select * from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
+   
 }
-
-
 $smarty->assign('reports', $reports);
+
+
 
 
 
@@ -278,19 +279,24 @@ $('#azubi').on('change', function() {
 	      url: "getReports2.php",
 	      type: "post",
 	      data: 'username='+username+'&sessrole='+sessrole+'&sessjobid='+sessjobid+'&sessdept='+sessdept,
+         dataType : 'json',
          success: function(data){
-         alert(data);
+            console.log(data);
+            $.each(data,function(i){
+               $('#reports').append("<option>"+data+"</option>");
+         })
          }
       })
    }
    if ( sessrole == "3") {
       $.ajax({ 
-	      url: "getReports.php",
+            url: "getReports.php",
 	      type: "post",
-	      data: 'username='+username,
-         success: function(data){
-         alert(data);
-         }
+         data: 'username='+username,
+         dataType : 'json',
+//         success: function(data){
+//         alert(data); 
+//         }
       })
    }
 })
