@@ -14,8 +14,8 @@ while($row = mysql_fetch_array($ergebnis)) {
    $reports[$row['reportid']][5] = $row['training'];
    $reports[$row['reportid']][6] = $row['school'];
 }
-print_r($reports);
-//echo json_encode($reports);
+//print_r($reports);
+echo json_encode($reports);
 ?>
 
 

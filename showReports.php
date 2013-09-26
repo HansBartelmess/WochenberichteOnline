@@ -283,7 +283,7 @@ $('#azubi').on('change', function() {
          success: function(data){
             console.log(data);
             $.each(data,function(i){
-               $('#reports').append("<option>"+data+"</option>");
+               $('#reports').append("<option>"+data[5]+"</option>");
          })
          }
       })
