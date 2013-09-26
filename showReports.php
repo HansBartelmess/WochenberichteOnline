@@ -25,7 +25,7 @@ if(isset($_GET['id']) && isset($_GET['reportNumber'])) {
 }
 else
 {
-$user_id=1;
+$user_id=$_SESSION['id'];
 
 $activeReport = 0;
 //   $reports = R::load('reports', $user_id);
@@ -78,11 +78,12 @@ $smarty->assign('azubi2', $azubi2);
  */
 $smarty->assign('activeReport', $activeReport);
 //$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
-
-
-if($_SESSION['role'] == 2) {
+if($_SESSION['role'] == "1") {
+   $reports = R::getAll( 'select * from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
+}
+elseif($_SESSION['role'] == 2) {
    $reports = R::getAll( 'select * from reports where user_id = 1' );
-   }
+}
 elseif($_SESSION['role'] == 3) {
 }
 $smarty->assign('reports', $reports);
@@ -273,7 +274,9 @@ function getvalue(param, typ) {
 $('#azubi').on('change', function() {
       var sessrole = <?php echo $_SESSION['role'];?>;
       var sessjobid = <?php echo $_SESSION['jobid'];?>; 
+      if ("<?php echo $_SESSION['role'];?>" == "2" || "<?php echo $_SESSION['role'];?>" == "3") {
       var sessdept = "<?php echo $_SESSION['dept'];?>";
+      }
       var username = $("#azubi").val();
       if (sessrole == "2") {
       $.ajax({ 

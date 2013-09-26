@@ -1,6 +1,8 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
 {print_r($azubi)}
+<br> 
+{print_r($reports)}
 <div id="main">
    <div class="ym-wrapper">
 
