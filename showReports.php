@@ -29,6 +29,15 @@ if($_SESSION['role'] == "1") {
    $smarty->assign('reports', $reports);
    $smarty->assign('activeReport', 0); 
 }
+elseif($_SESSION['role'] == 2) {
+      $azubi = R::getall('SELECT user.id, user.username, user.name, user.surname, userid_role.role, reports.user_id, reports.division FROM user user, userid_role userid_role, reports reports WHERE user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = "'.$_SESSION['jobid'].'"' );
+$smarty->assign('azubi', $azubi);
+}
+elseif($_SESSION['role'] == 3) {
+   
+       $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
+$smarty->assign('azubi', $azubi);
+}
 
 //Functions:
 
