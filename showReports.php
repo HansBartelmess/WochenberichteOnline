@@ -280,10 +280,13 @@ $('#azubi').on('change', function() {
 	      type: "post",
 	      data: 'username='+username+'&sessrole='+sessrole+'&sessjobid='+sessjobid+'&sessdept='+sessdept,
          dataType : 'json',
-         success: function(data){
+         success: 
+         function(data){
+            document.getElementById('reports').options.length = 0;
             console.log(data);
             $.each(data,function(i){
-               $('#reports').append("<option>"+data[5]+"</option>");
+               $('#reports').append("<option value="+data[i][1]+">Bericht vom "+data[i][3]+" - enddatum</option>");
+               i++;
          })
          }
       })

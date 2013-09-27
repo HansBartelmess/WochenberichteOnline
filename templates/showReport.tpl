@@ -29,7 +29,8 @@
             <label for="reports">Berichte</label>
             <select name = "reports" id = "reports">
             {foreach $reports as $row}
-               <option value="{$row.reportNumber}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
+               <option value=""></option>
+              <!-- <option value="{$row.reportid}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option> -->
             {/foreach}
             </select>
             </div>
