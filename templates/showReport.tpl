@@ -29,8 +29,13 @@
             <label for="reports">Berichte</label>
             <select name = "reports" id = "reports">
             {foreach $reports as $row}
-               <option value=""></option>
-              <!-- <option value="{$row.reportid}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option> -->
+               
+                  {if ($smarty.session.role == "1")} 
+                     <option value="{$row.reportid}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <option value=""></option>
+                  {/if}
             {/foreach}
             </select>
             </div>
@@ -61,28 +66,52 @@
                   <label for="change">Bearbeiten:</label>
                   <input type="checkbox" name="change" id="change" onclick="enable_change(this,'{$smarty.session.role}');"/>
                </div>
-			
                <div class="ym-fbox-text">
                   <label for="reportNumber">Ausbildungsnachweis:</label>
-                  <input type="text" name="reportNumber" id="reportNumber" value="{$reports[$activeReport]['reportNumber']}" size="3"/>
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="reportNumber" id="reportNumber" value="{$reports[$activeReport]['reportNumber']}" size="3"/>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="reportNumber" id="reportNumber" value="" size="3"/>
+                  {/if}
                </div>
                <div class="ym-fbox-text">
                   <label for="division">Abteilung:</label>
-                  <input type="text" name="division" id="division" value="{$reports[$activeReport]['division']}" size="25"/>
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="division" id="division" value="{$reports[$activeReport]['division']}" size="25"/>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="division" id="division" value="" size="25"/>
+                  {/if}
                </div>
             </div>
 
             <div class="ym-g50 ym-gr">
                <div class="ym-fbox-text">
                   <label for="startDate">für die Zeit vom:</label>
-                  <input type="text" name="startDate" id="startDate" value="{$reports[$activeReport]['startDate']}" size="3"/>
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="startDate" id="startDate" value="{$reports[$activeReport]['startDate']}" size="3"/>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="startDate" id="startDate" value="" size="3"/>
+                  {/if}
                   <div style="float:right;" class="ym-clearfix">
+                     {if ($smarty.session.role == "1")} 
                      bis: <span id="bis">{getEndDate($activeReport)}</span>
+                     {/if}
+                     {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     bis: <span id="bis"></span>
+                     {/if}
                   </div>
                </div>
                <div class="ym-fbox-text">
                   <label for="signDate">Datum:</label>
-                  <input type="text" name="signDate" id="signDate" value="" size="25"/>
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="signDate" id="signDate" value="" size="25"/>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="signDate" id="signDate" value="" size="25"/>
+                  {/if}
                </div>
             </div>
          
@@ -91,13 +120,23 @@
             <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
                   <label for="company">Betriebliche Tätigkeit:</label>
-                  <textarea name="company" id="company" cols="100" rows="10">{$reports[$activeReport]['company']}</textarea>
+                  {if ($smarty.session.role == "1")} 
+                     <textarea name="company" id="company" cols="100" rows="10">{$reports[$activeReport]['company']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="company" id="company" cols="100" rows="10"></textarea>
+                  {/if}
 			   </div>
 		   </div>
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
-                     <label for="noteCompany">Kommentar:</label>
+                  <label for="noteCompany">Kommentar:</label>
+                  {if ($smarty.session.role == "1")} 
                      <textarea name="noteCompany" id="noteCompany" cols="10" rows="10" >{$reports[$activeReport]['noteCompany']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="noteCompany" id="noteCompany" cols="10" rows="10" ></textarea>
+                  {/if}
                </div>
             </div>
 		</div>
@@ -106,14 +145,24 @@
             <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
                   <label for="training">Themen von Unterweisungen:</label>
-                  <textarea name="training" id="training" cols="100" rows="10">{$reports[$activeReport]['training']}</textarea>
+                  {if ($smarty.session.role == "1")} 
+                     <textarea name="training" id="training" cols="100" rows="10">{$reports[$activeReport]['training']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="training" id="training" cols="100" rows="10"></textarea>
+                  {/if}
                </div>
             </div>
 			
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
-                     <label for="noteTraining">Kommentar:</label>
+                  <label for="noteTraining">Kommentar:</label>
+                  {if ($smarty.session.role == "1")} 
                      <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" >{$reports[$activeReport]['noteTraining']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="noteTraining" id="noteTraining" cols="10" rows="10" ></textarea>
+                  {/if}
                </div>
             </div>
         
@@ -122,13 +171,23 @@
            <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
                   <label for="school">Berufsschule:</label>
-                  <textarea name="school" id="school" cols="100" rows="10">{$reports[$activeReport]['school']}</textarea>
+                  {if ($smarty.session.role == "1")} 
+                     <textarea name="school" id="school" cols="100" rows="10">{$reports[$activeReport]['school']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="school" id="school" cols="100" rows="10"></textarea>
+                  {/if}
                </div>
             </div>
 			<div class="ym-g20 ym-gl">   
 			   <div class="ym-fbox-text">
-                     <label for="noteSchool">Kommentar:</label>
+                  <label for="noteSchool">Kommentar:</label>
+                  {if ($smarty.session.role == "1")} 
                      <textarea name="noteSchool" id="noteSchool" cols="10" rows="10" >{$reports[$activeReport]['noteSchool']}</textarea>
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <textarea name="noteSchool" id="noteSchool" cols="10" rows="10" ></textarea>
+                  {/if}
                </div>
             </div>
 			

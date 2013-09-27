@@ -80,9 +80,8 @@ $smarty->assign('activeReport', $activeReport);
 //$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
 if($_SESSION['role'] == "1") {
    $reports = R::getAll( 'select * from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
-   
 }
-$smarty->assign('reports', $reports);
+$smarty->assign('reports', $reports); 
 
 
 
@@ -245,29 +244,9 @@ function enable_change(elem,typ){
 	}
 
 }
-/*
-function getvalue(param, typ) {
-   if (typ == "2") {
-      var username = $("#username").value();
-      $.ajax({ 
-	      url: "getReports2.php",
-	      type: "post",
-	      data: 'username='+username,
-	      success: alert();
-      }
-   }
 
-   if (typ == "3") {
-      var username = $("#username").value();
-      $.ajax({ 
-	      url: "getReports.php",
-	      type: "post",
-	      data: 'username='+username,
-	      success: alert();
-      }
-   }
-}
- */
+
+
 
 $('#azubi').on('change', function() {
    var sessrole = <?php echo $_SESSION['role'];?>;
@@ -284,11 +263,30 @@ $('#azubi').on('change', function() {
          function(data){
             document.getElementById('reports').options.length = 0;
             console.log(data);
+            var firstProp;
+            for(var key in data) {
+               if(data.hasOwnProperty(key)) {
+                  firstProp = data[key];
+                  break;
+               }
+            }
+            $('#reportNumber').attr("value", firstProp[1]);
+            $('#division').attr("value", firstProp[2]);
+            $('#startDate').attr("value", firstProp[3]);
+            document.getElementById("bis").innerHTML=firstProp[4];
+            $('textarea[name=company]').val(firstProp[5]);
+            $('textarea[name=training]').val(firstProp[6]);
+            $('textarea[name=school]').val(firstProp[7]);
+            $('textarea[name=noteCompany]').val(firstProp[8]);
+            $('textarea[name=noteTraining]').val(firstProp[9]);
+            $('textarea[name=noteSchool]').val(firstProp[10]);
             $.each(data,function(i){
-               $('#reports').append("<option value="+data[i][1]+">Bericht vom "+data[i][3]+" - enddatum</option>");
+               $('#reports').append("<option value="+data[i][0]+">Bericht: "+data[i][2]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
                i++;
-         })
+            })
+            
          }
+
       })
    }
    if ( sessrole == "3") {
@@ -303,6 +301,34 @@ $('#azubi').on('change', function() {
       })
    }
 })
+
+$('#reports').on('change', function() {
+   var reportid = $("#reports").val();
+   var username = $("#azubi").val();
+      console.log(reportid);
+      $.ajax({ 
+	      url: "getActiveReport.php",
+	      type: "post",
+	      data: 'reportid='+reportid+'&username='+username,
+         dataType : 'json',
+         success: 
+         function(data){
+            console.log(data);
+            $('#reportNumber').attr("value", data[reportid][1]);
+            $('#division').attr("value", data[reportid][2]);
+            $('#startDate').attr("value", data[reportid][3]);
+            document.getElementById("bis").innerHTML=data[reportid][4];
+            $('textarea[name=company]').val(data[reportid][5]);
+            $('textarea[name=training]').val(data[reportid][6]);
+            $('textarea[name=school]').val(data[reportid][7]);
+            $('textarea[name=noteCompany]').val(data[reportid][8]);
+            $('textarea[name=noteTraining]').val(data[reportid][9]);
+            $('textarea[name=noteSchool]').val(data[reportid][10]);
+         }
+
+      })
+   })
+
 
 
 
