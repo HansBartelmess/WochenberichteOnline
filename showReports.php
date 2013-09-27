@@ -341,12 +341,13 @@ if (param == "1") {
 	var training = $("#training").val();
 	var school = $("#school").val();
 	var reportNumber = $("#reportNumber").val();
-	var startDate = $("#startDate").val();
+   var startDate = $("#startDate").val();
+   var reportid = $("#reports").val();
 
 	$.ajax({ 
 	   url: "showReports_insert.php",
 	   type: "post",
-	   data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate,
+	   data: 'company='+company+'&division='+division+'&training='+training+'&school='+school+'&reportNumber='+reportNumber+'&startDate='+startDate+'&reportid='+reportid,
 	   success: function(data){ 
 			$("#reportNumber").attr('readonly', true);
 			$("#reportNumber").css('background-color', '#D5D5D5');
@@ -366,7 +367,7 @@ if (param == "1") {
 			$("#school").prop("disabled", true);
 			$("#school").css('background-color', '#D5D5D5')
 	   
-	   
+	      $('input[name=change]').attr('checked', false); 
 	   }, 
 	   error: function(){ 
 	      alert("failure"); 
@@ -380,12 +381,11 @@ if (param == "1") {
 		var noteCompany = $("#noteCompany").val();
 		var noteTraining = $("#noteTraining").val();
 		var noteSchool = $("#noteSchool").val();
-		var reportNumber = $("#reportNumber").val();
-		var startDate = $("#startDate").val();
+      var reportid = $("#reports").val();
 		$.ajax({ 
 		   url: "showReports_insert2.php",
 		   type: "post",
-		   data: 'noteCompany='+noteCompany+'&noteTraining='+noteTraining+'&noteSchool='+noteSchool+'&reportNumber='+reportNumber+'&startDate='+startDate,
+		   data: 'noteCompany='+noteCompany+'&noteTraining='+noteTraining+'&noteSchool='+noteSchool+'&reportid='+reportid,
 		   success: function(data){ 
 	  
 		$("#noteCompany").prop("disabled", true);
@@ -397,7 +397,7 @@ if (param == "1") {
 		$("#noteSchool").prop("disabled", true);
 		$("#noteSchool").css('background-color', '#D5D5D5')
    
-   
+      $('input[name=change]').attr('checked', false);
       }, 
    error: function(){ 
       alert("failure"); 

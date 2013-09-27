@@ -204,7 +204,7 @@
          {/if}
 
 		 <div class="ym-fbox-button">
-         <button type="button" id="submit" name="submit" value="submit" class="ym-button ym-save" onclick="getval('{$smarty.session.id}')">Änderungen speichern</button>
+         <button type="button" id="submit" name="submit" value="submit" class="ym-button ym-save" onclick="getval('{$smarty.session.role}')">Änderungen speichern</button>
 			<button type="button" id="pdf" name="pdf" value="pdf" class="ym-button ym-save">PDF erstellen</button>
        </div> 
     </form>
