@@ -19,73 +19,16 @@ $smarty = new Smarty;
 
 CreateMenu($smarty);
 
-if(isset($_GET['id']) && isset($_GET['reportNumber'])) {
-   $reportNumber = $_GET['reportNumber'];
-   $activeReport = $reportNumber - 1;
-}
-else
-{
-$user_id=$_SESSION['id'];
 
-$activeReport = 0;
-//   $reports = R::load('reports', $user_id);
-
-
-$smarty->assign('activeReport', "1");
-}
-
-
-
-//Datenbankabfragen:
-/*
-$azubi = R::getALL( 'select * from user' );
-$smarty->assign('azubi', $azubi);
- */
-//$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname,userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .'' );
-/*
-function getBerichte(role) {
-   if($_SESSION['role'] == 2){
-      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'');
-
-   }
-   elseif($SESSION['role'] == 3){
-      $azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
-   
-   }
-
-
-}
- */
-
-
-//if($_SESSION['role'] == 2) {
-      $azubi = R::getall('SELECT user.id, user.username, user.name, user.surname, userid_role.role, reports.user_id, reports.division FROM user user, userid_role userid_role, reports reports WHERE user.id = userid_role.user_id && userid_role.role ='. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
-//}
-//elseif($_SESSION['role'] == 3) {
-   
-       $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
-//}
-$smarty->assign('azubi', $azubi);
-
-
-
-
-/*
-$azubi2 = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = '. 1 .' && user.jobid = '. $_SESSION['jobid'] .'' );
-
-
-$smarty->assign('azubi2', $azubi2);
- */
-$smarty->assign('activeReport', $activeReport);
-//$reports = R::getAll( 'select * from reports where user_id = '.$_SESSION['id'] );
 if($_SESSION['role'] == "1") {
+
    $reports = R::getAll( 'select * from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
+   $azubi = R::getall('SELECT * from user where username = "'. $_SESSION['username'] .'";' );
+   
+   $smarty->assign('azubi', $azubi);
+   $smarty->assign('reports', $reports);
+   $smarty->assign('activeReport', 0); 
 }
-$smarty->assign('reports', $reports); 
-
-
-
-
 
 //Functions:
 
