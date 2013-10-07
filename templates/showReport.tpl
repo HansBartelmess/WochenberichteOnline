@@ -31,7 +31,7 @@
             {foreach $reports as $row}
                
                   {if ($smarty.session.role == "1")} 
-                     <option value="{$row.id}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
+                     <option value="{$row.id}">Bericht {$row.reportNumber} vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
                   {/if}
                   {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
                      <option value=""></option>
