@@ -31,14 +31,14 @@
             <div class="ym-g50 ym-gr">
                <div class="ym-fbox-text">
                   <label for="startDate">für die Zeit vom:<sup class="ym-required">*</sup></label>
-                  <input type="text" name="startDate" id="startDate" size="3" required="required" aria-required="true"' onchange="validate_date();"/>
+                  <input type="text" name="startDate" id="startDate" size="3" required="required" aria-required="true" onchange="validate_date();"/>
                   <div style="float:right;" class="ym-clearfix">
                      bis: <span id="bis"></span>
                   </div>
                </div>
                <div class="ym-fbox-text">
                   <label for="signDate">Datum:</label>
-                  <input type="text" name="signDate" id="signDate" size="25" required="required" aria-required="true"/>
+                  <input type="text" name="signDate" id="signDate" size="25"/>
                </div>
             </div>
          </div>
