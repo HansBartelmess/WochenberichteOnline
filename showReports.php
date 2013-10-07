@@ -22,7 +22,9 @@ CreateMenu($smarty);
 
 if($_SESSION['role'] == "1") {
 
-   $reports = R::getAll( 'select * from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
+
+
+   $reports = R::getAll( 'select reports.id, reports.reportNumber, reports.division, reports.startDate, reports.company, reports.training, reports.school, reports.user_id, reports.noteCompany, reports.noteTraining, reports.noteSchool from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
    $azubi = R::getall('SELECT * from user where username = "'. $_SESSION['username'] .'";' );
    
    $smarty->assign('azubi', $azubi);
@@ -280,27 +282,26 @@ $('#azubi').on('change', function() {
 })
 
 $('#reports').on('change', function() {
-   var reportid = $("#reports").val();
+   var id = $("#reports").val();
    var username = $("#azubi").val();
-      console.log(reportid);
       $.ajax({ 
 	      url: "getActiveReport.php",
 	      type: "post",
-	      data: 'reportid='+reportid+'&username='+username,
+	      data: 'id='+id+'&username='+username,
          dataType : 'json',
          success: 
          function(data){
-            console.log(data);
-            $('#reportNumber').attr("value", data[reportid][1]);
-            $('#division').attr("value", data[reportid][2]);
-            $('#startDate').attr("value", data[reportid][3]);
-            document.getElementById("bis").innerHTML=data[reportid][4];
-            $('textarea[name=company]').val(data[reportid][5]);
-            $('textarea[name=training]').val(data[reportid][6]);
-            $('textarea[name=school]').val(data[reportid][7]);
-            $('textarea[name=noteCompany]').val(data[reportid][8]);
-            $('textarea[name=noteTraining]').val(data[reportid][9]);
-            $('textarea[name=noteSchool]').val(data[reportid][10]);
+            console.log(data); 
+            $('#reportNumber').attr("value", data[id][1]);
+            $('#division').attr("value", data[id][2]);
+            $('#startDate').attr("value", data[id][3]);
+            document.getElementById("bis").innerHTML=data[id][4];
+            $('textarea[name=company]').val(data[id][5]);
+            $('textarea[name=training]').val(data[id][6]);
+            $('textarea[name=school]').val(data[id][7]);
+            $('textarea[name=noteCompany]').val(data[id][8]);
+            $('textarea[name=noteTraining]').val(data[id][9]);
+            $('textarea[name=noteSchool]').val(data[id][10]);
          }
 
       })
