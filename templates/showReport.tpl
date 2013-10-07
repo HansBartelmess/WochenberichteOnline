@@ -1,6 +1,6 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
-{print_r($azubi)}
+{print_r($randomazubi)}
 <br> 
 {print_r($reports)}
 <div id="main">
@@ -52,7 +52,11 @@
             <label for="azubi">Azubi</label>
             <select name = "azubi" id = "azubi">
             {foreach $azubi as $row}
-               <option value="{$row.username}">{$row.name} {$row.surname}</option>
+               {if ($zahl != $row.id)}
+                  <option value="{$row.username}">{$row.name} {$row.surname}</option>
+               {else} 
+                  <option value="{$row.username}" selected='selected'>{$row.name} {$row.surname}</option>
+               {/if}  
             {/foreach}
             </select>
             </div>

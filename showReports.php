@@ -1,6 +1,7 @@
 <?php // Einstiegsseite
 require_once('include.php');
 EnsureLogin();
+/*
 echo "Kontrollausgaben:<br>";
 echo "sessionusername: " .$_SESSION['username'];
 echo "<br>";
@@ -12,7 +13,7 @@ echo "sessionjobid: " .$_SESSION['jobid'];
 echo "<br>";
 echo "sessiondept: " .$_SESSION['dept'];
 echo "<br>";
-
+ */
 
 
 $smarty = new Smarty;
@@ -21,9 +22,6 @@ CreateMenu($smarty);
 
 
 if($_SESSION['role'] == "1") {
-
-
-
    $reports = R::getAll( 'select reports.id, reports.reportNumber, reports.division, reports.startDate, reports.company, reports.training, reports.school, reports.user_id, reports.noteCompany, reports.noteTraining, reports.noteSchool from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
    $azubi = R::getall('SELECT * from user where username = "'. $_SESSION['username'] .'";' );
    
@@ -33,16 +31,23 @@ if($_SESSION['role'] == "1") {
 }
 elseif($_SESSION['role'] == 2) {
       $azubi = R::getall('SELECT DISTINCT user.id, user.username, user.name, user.surname FROM user INNER JOIN userid_role ON user.id = userid_role.user_id AND userid_role.role = 1 INNER JOIN reports ON reports.user_id = user.id AND reports.division = "'.$_SESSION['dept'].'" WHERE user.jobid = "'.$_SESSION['jobid'].'";' );
-$smarty->assign('azubi', $azubi);
+      $smarty->assign('azubi', $azubi);
+      $randomazubi = R::getall('SELECT DISTINCT user.id FROM user INNER JOIN userid_role ON user.id = userid_role.user_id AND userid_role.role = 1 INNER JOIN reports ON reports.user_id = user.id AND reports.division = "'.$_SESSION['dept'].'" WHERE user.jobid = "'.$_SESSION['jobid'].'";' );
+      $smarty->assign('randomazubi', $randomazubi);
 }
 elseif($_SESSION['role'] == 3) {
    
-       $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
-$smarty->assign('azubi', $azubi);
+      $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
+      $smarty->assign('azubi', $azubi);
+      $randomazubi = R::getall( 'select user.id from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
+      $zahl = rand(1,count($randomazubi));
+      $smarty->assign('randomazubi', $randomazubi);
+      $smarty->assign('zahl', $zahl);
+      echo $zahl;
 }
 
-//Functions:
 
+//Functions:
 function getEndDate($activeReport) {
 $reports = R::getAll( 'select * from reports where user_id = 1' );
 
