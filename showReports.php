@@ -32,7 +32,8 @@ if($_SESSION['role'] == "1") {
 elseif($_SESSION['role'] == 2) {
       $azubi = R::getall('SELECT DISTINCT user.id, user.username, user.name, user.surname FROM user INNER JOIN userid_role ON user.id = userid_role.user_id AND userid_role.role = 1 INNER JOIN reports ON reports.user_id = user.id AND reports.division = "'.$_SESSION['dept'].'" WHERE user.jobid = "'.$_SESSION['jobid'].'";' );
       $smarty->assign('azubi', $azubi);
-      $randomazubi = R::getall('SELECT DISTINCT user.id FROM user INNER JOIN userid_role ON user.id = userid_role.user_id AND userid_role.role = 1 INNER JOIN reports ON reports.user_id = user.id AND reports.division = "'.$_SESSION['dept'].'" WHERE user.jobid = "'.$_SESSION['jobid'].'";' );
+      $randomazubi = R::getall('SELECT DISTINCT user.username FROM user INNER JOIN userid_role ON user.id = userid_role.user_id AND userid_role.role = 1 INNER JOIN reports ON reports.user_id = user.id AND reports.division = "'.$_SESSION['dept'].'" WHERE user.jobid = "'.$_SESSION['jobid'].'";' );
+      shuffle($randomazubi);
       $smarty->assign('randomazubi', $randomazubi);
 }
 elseif($_SESSION['role'] == 3) {
@@ -41,10 +42,7 @@ elseif($_SESSION['role'] == 3) {
       $smarty->assign('azubi', $azubi);
       $randomazubi = R::getall( 'select user.username from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
       shuffle($randomazubi);
-     // $zahl = rand(0,(count($randomazubi)-1));
       $smarty->assign('randomazubi', $randomazubi);
-      //$smarty->assign('zahl', $zahl);
-     // echo $zahl;
 }
 
 

@@ -51,8 +51,7 @@
             <div class="ym-gbox ym-fbox-select">
             <label for="azubi">Azubi</label>
             <select name = "azubi" id = "azubi">
-            {foreach $azubi as $row}
-            echo $randomazubi;
+            {foreach $azubi as $row}     
                {if ($randomazubi[0]['username'] != $row.username)}
                   <option value="{$row.username}">{$row.name} {$row.surname}</option>
                {else} 
