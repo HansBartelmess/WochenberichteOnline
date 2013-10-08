@@ -39,11 +39,12 @@ elseif($_SESSION['role'] == 3) {
    
       $azubi = R::getall( 'select user.id, user.username, user.name, user.surname, userid_role.role from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
       $smarty->assign('azubi', $azubi);
-      $randomazubi = R::getall( 'select user.id from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
-      $zahl = rand(1,count($randomazubi));
+      $randomazubi = R::getall( 'select user.username from user user, userid_role userid_role where user.id = userid_role.user_id && userid_role.role = 1 && user.jobid = '. $_SESSION['jobid'] .'' );
+      shuffle($randomazubi);
+     // $zahl = rand(0,(count($randomazubi)-1));
       $smarty->assign('randomazubi', $randomazubi);
-      $smarty->assign('zahl', $zahl);
-      echo $zahl;
+      //$smarty->assign('zahl', $zahl);
+     // echo $zahl;
 }
 
 

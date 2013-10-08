@@ -52,7 +52,8 @@
             <label for="azubi">Azubi</label>
             <select name = "azubi" id = "azubi">
             {foreach $azubi as $row}
-               {if ($zahl != $row.id)}
+            echo $randomazubi;
+               {if ($randomazubi[0]['username'] != $row.username)}
                   <option value="{$row.username}">{$row.name} {$row.surname}</option>
                {else} 
                   <option value="{$row.username}" selected='selected'>{$row.name} {$row.surname}</option>
