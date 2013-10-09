@@ -118,7 +118,7 @@ $(window).load(function () {
 });
 
 
-function enable_change(elem,typ){
+function set_signed(elem,typ){
 		if($(elem).is(':checked')){ 
          var report = $("#reports").val();
          var username = $("#azubi").val();
