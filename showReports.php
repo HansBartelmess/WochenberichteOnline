@@ -99,45 +99,44 @@ $(window).load(function () {
 	$("#signDate").attr('readonly', true);
 	$("#signDate").css('background-color', '#D5D5D5')
 		  
-	$("#company").prop("disabled", true);
+	$("#company").prop("disabled", true); 
+
 	$("#company").css('background-color', '#D5D5D5')
 	
 	$("#training").prop("disabled", true);
-	$("#training").css('background-color', '#D5D5D5')
+	$("#training").css('background-color', '#D5D5D5');
 	
 	$("#school").prop("disabled", true);
-    $("#school").css('background-color', '#D5D5D5')
+   $("#school").css('background-color', '#D5D5D5');
 
-      $("#noteCompany").prop("disabled", true);
-      $("#noteCompany").css('background-color', '#D5D5D5')
+   $("#noteCompany").prop("disabled", true);
+   $("#noteCompany").css('background-color', '#D5D5D5')
      
-      $("#noteTraining").prop("disabled", true);
-      $("#noteTraining").css('background-color', '#D5D5D5')
-      
-	  $("#noteSchool").prop("disabled", true);
-      $("#noteSchool").css('background-color', '#D5D5D5')
-
-  
+   $("#noteTraining").prop("disabled", true);
+   $("#noteTraining").css('background-color', '#D5D5D5')
+   
 });
-function set_signed(elem,typ){
-   if($(elem).is(':checked')){
-      var report = $("#reports").val();
-      var username = $("#azubi").val();
-      if (typ === "2"){
-         $.ajax({ 
-	         url: "setSigned2.php",
-	         type: "post",
-	         data: 'username='+username+'&report='+report,
+
+
+function enable_change(elem,typ){
+		if($(elem).is(':checked')){ 
+         var report = $("#reports").val();
+         var username = $("#azubi").val();
+         if (typ === "2"){
+            $.ajax({ 
+	            url: "setSigned2.php",
+	            type: "post",
+	            data: 'username='+username+'&report='+report,
             })
+         }
+         if (typ === "3") {
+            $.ajax({ 
+	            url: "setSigned2.php",
+	            type: "post",
+	            data: 'username='+username+'&report='+report,
+            })
+         }
       }
-      if (typ === "3") {
-         $.ajax({ 
-	         url: "setSigned2.php",
-	         type: "post",
-	         data: 'username='+username+'&report='+report,
-         })
-      }
-   }
 }
 function enable_change(elem,typ){
 	
@@ -157,13 +156,11 @@ function enable_change(elem,typ){
 		else {
 			$("#noteCompany").prop("disabled", true);
 			$("#noteCompany").css('background-color', '#D5D5D5');
-			http://nopaste.info/6375175368.html
 			$("#noteTraining").prop("disabled", true);
 			$("#noteTraining").css('background-color', '#D5D5D5');
 			
 			$("#noteSchool").prop("disabled", true);
 			$("#noteSchool").css('background-color', '#D5D5D5');
-			http://nopaste.info/6375175368.html
 			return false;
 		}
 	}
@@ -224,7 +221,7 @@ function enable_change(elem,typ){
 
 
 
-$('#azubi').on('change', function() {
+$('#azubi').on('load', function() {
    var sessrole = <?php echo $_SESSION['role'];?>;
    var sessjobid = <?php echo $_SESSION['jobid'];?>; 
    var sessdept = "<?php echo $_SESSION['dept'];?>"; 
@@ -372,7 +369,7 @@ if (param == "1") {
 	   error: function(){ 
 	      alert("failure"); 
 	      $("#results").html('There is error while submit'); 
-	      } 
+	   } 
 	});
 	
 	}
@@ -403,7 +400,7 @@ if (param == "1") {
       alert("failure"); 
       $("#results").html('There is error while submit'); 
       } 
-});
+})
 
 		
 	}
