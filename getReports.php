@@ -21,6 +21,5 @@ while($row = mysql_fetch_array($ergebnis)) {
 
 
 }
-//print_r($reports);
 echo json_encode($reports);
 ?>

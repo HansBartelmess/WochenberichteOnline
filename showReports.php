@@ -124,7 +124,7 @@ function set_signed(elem,typ){
          var username = $("#azubi").val();
          if (typ === "2"){
             $.ajax({ 
-	            url: "setSigned2.php",
+	            url: "setSigned.php",
 	            type: "post",
 	            data: 'username='+username+'&report='+report,
             })
@@ -155,8 +155,9 @@ function enable_change(elem,typ){
 		}
 		else {
 			$("#noteCompany").prop("disabled", true);
-			$("#noteCompany").css('background-color', '#D5D5D5');
-			$("#noteTraining").prop("disabled", true);
+         $("#noteCompany").css('background-color', '#D5D5D5');
+
+         $("#noteTraining").prop("disabled", true);
 			$("#noteTraining").css('background-color', '#D5D5D5');
 			
 			$("#noteSchool").prop("disabled", true);
@@ -174,16 +175,16 @@ function enable_change(elem,typ){
 		$("#division").css('background-color', '#FFFFFF');
 		  
 		$("#signDate").attr('readonly', false);
-		$("#signDate").css('background-color', '#FFFFFF')
+		$("#signDate").css('background-color', '#FFFFFF');
 			  
 		$("#company").prop("disabled", false);
-		$("#company").css('background-color', '#FFFFFF')
+		$("#company").css('background-color', '#FFFFFF');
 		
 		$("#training").prop("disabled", false);
-		$("#training").css('background-color', '#FFFFFF')
+		$("#training").css('background-color', '#FFFFFF');
 		
 		$("#school").prop("disabled", false);
-		$("#school").css('background-color', '#FFFFFF')
+		$("#school").css('background-color', '#FFFFFF');
 	
 	}
 	else {
@@ -194,24 +195,24 @@ function enable_change(elem,typ){
 		$("#division").css('background-color', '#D5D5D5');
 		  
 		$("#signDate").attr('readonly', true);
-		$("#signDate").css('background-color', '#D5D5D5')
+		$("#signDate").css('background-color', '#D5D5D5');
 			  
 		$("#company").prop("disabled", true);
-		$("#company").css('background-color', '#D5D5D5')
+		$("#company").css('background-color', '#D5D5D5');
 		
 		$("#training").prop("disabled", true);
-		$("#training").css('background-color', '#D5D5D5')
+		$("#training").css('background-color', '#D5D5D5');
 		
 		$("#school").prop("disabled", true);
-		$("#school").css('background-color', '#D5D5D5')
+		$("#school").css('background-color', '#D5D5D5');
 
          if ("<?php echo $_SESSION['role'];?>" == "1") {
          $("#noteCompany").prop("disabled", true);
-         $("#noteCompany").css('background-color', '#D5D5D5')
+         $("#noteCompany").css('background-color', '#D5D5D5');
          $("#noteTraining").prop("disabled", true);
-         $("#noteTraining").css('background-color', '#D5D5D5')
+         $("#noteTraining").css('background-color', '#D5D5D5');
          $("#noteSchool").prop("disabled", true);
-         $("#noteSchool").css('background-color', '#D5D5D5')
+         $("#noteSchool").css('background-color', '#D5D5D5');
       }
 	
 	}
@@ -353,16 +354,16 @@ if (param == "1") {
 			$("#division").css('background-color', '#D5D5D5');
 			  
 			$("#signDate").attr('readonly', true);
-			$("#signDate").css('background-color', '#D5D5D5')
+			$("#signDate").css('background-color', '#D5D5D5');
 				  
 			$("#company").prop("disabled", true);
-			$("#company").css('background-color', '#D5D5D5')
+			$("#company").css('background-color', '#D5D5D5');
 			
 			$("#training").prop("disabled", true);
-			$("#training").css('background-color', '#D5D5D5')
+			$("#training").css('background-color', '#D5D5D5');
 			
 			$("#school").prop("disabled", true);
-			$("#school").css('background-color', '#D5D5D5')
+			$("#school").css('background-color', '#D5D5D5');
 	   
 	      $('input[name=change]').attr('checked', false); 
 	   }, 
@@ -386,13 +387,13 @@ if (param == "1") {
 		   success: function(data){ 
 	  
 		$("#noteCompany").prop("disabled", true);
-		$("#noteCompany").css('background-color', '#D5D5D5')
+		$("#noteCompany").css('background-color', '#D5D5D5');
 		
 		$("#noteTraining").prop("disabled", true);
-		$("#noteTraining").css('background-color', '#D5D5D5')
+		$("#noteTraining").css('background-color', '#D5D5D5');
 		
 		$("#noteSchool").prop("disabled", true);
-		$("#noteSchool").css('background-color', '#D5D5D5')
+		$("#noteSchool").css('background-color', '#D5D5D5');
    
       $('input[name=change]').attr('checked', false);
       }, 
