@@ -210,6 +210,10 @@
 		 <div class="ym-fbox-button">
          <button type="button" id="submit" name="submit" value="submit" class="ym-button ym-save" onclick="getval('{$smarty.session.role}')">Änderungen speichern</button>
 			<button type="button" id="pdf" name="pdf" value="pdf" class="ym-button ym-save">PDF erstellen</button>
+         {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+            <label for="signed">Unterzeichnen:</label>
+            <input type="checkbox" name="signed" id="signed" onclick="set_signed(this,'{$smarty.session.role}');"/>
+         {/if}
        </div> 
     </form>
    </div>

@@ -119,8 +119,26 @@ $(window).load(function () {
 
   
 });
-
-
+function set_signed(elem,typ){
+   if($(elem).is(':checked')){
+      var report = $("#reports").val();
+      var username = $("#azubi").val();
+      if (typ === "2"){
+         $.ajax({ 
+	         url: "setSigned2.php",
+	         type: "post",
+	         data: 'username='+username+'&report='+report,
+            })
+      }
+      if (typ === "3") {
+         $.ajax({ 
+	         url: "setSigned2.php",
+	         type: "post",
+	         data: 'username='+username+'&report='+report,
+         })
+      }
+   }
+}
 function enable_change(elem,typ){
 	
 	if (typ === "2" || typ === "3") {
@@ -139,13 +157,13 @@ function enable_change(elem,typ){
 		else {
 			$("#noteCompany").prop("disabled", true);
 			$("#noteCompany").css('background-color', '#D5D5D5');
-			
+			http://nopaste.info/6375175368.html
 			$("#noteTraining").prop("disabled", true);
 			$("#noteTraining").css('background-color', '#D5D5D5');
 			
 			$("#noteSchool").prop("disabled", true);
 			$("#noteSchool").css('background-color', '#D5D5D5');
-			
+			http://nopaste.info/6375175368.html
 			return false;
 		}
 	}
