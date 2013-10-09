@@ -221,7 +221,7 @@ function enable_change(elem,typ){
 
 
 
-$('#azubi').on('load', function() {
+$('#azubi').on('change', function() {
    var sessrole = <?php echo $_SESSION['role'];?>;
    var sessjobid = <?php echo $_SESSION['jobid'];?>; 
    var sessdept = "<?php echo $_SESSION['dept'];?>"; 
