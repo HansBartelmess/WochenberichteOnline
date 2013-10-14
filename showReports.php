@@ -87,6 +87,82 @@ R::close();
 
 <script>
 $(window).load(function () {
+      var sessrole = <?php echo $_SESSION['role'];?>;
+   var sessjobid = <?php echo $_SESSION['jobid'];?>; 
+   var sessdept = "<?php echo $_SESSION['dept'];?>"; 
+   var username = $("#azubi").val();
+   if (sessrole == "2") {
+      $.ajax({ 
+	      url: "getReports2.php",
+	      type: "post",
+	      data: 'username='+username+'&sessrole='+sessrole+'&sessjobid='+sessjobid+'&sessdept='+sessdept,
+         dataType : 'json',
+         success: 
+         function(data){
+            document.getElementById('reports').options.length = 0;
+            console.log(data);
+            var firstProp;
+            for(var key in data) {
+               if(data.hasOwnProperty(key)) {
+                  firstProp = data[key];
+                  break;
+               }
+            }
+            $('#reportNumber').attr("value", firstProp[1]);
+            $('#division').attr("value", firstProp[2]);
+            $('#startDate').attr("value", firstProp[3]);
+            document.getElementById("bis").innerHTML=firstProp[4];
+            $('textarea[name=company]').val(firstProp[5]);
+            $('textarea[name=training]').val(firstProp[6]);
+            $('textarea[name=school]').val(firstProp[7]);
+            $('textarea[name=noteCompany]').val(firstProp[8]);
+            $('textarea[name=noteTraining]').val(firstProp[9]);
+            $('textarea[name=noteSchool]').val(firstProp[10]);
+            $.each(data,function(i){
+               $('#reports').append("<option value="+data[i][0]+">Bericht: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
+               i++;
+            })
+            
+         }
+
+      })
+   }
+   if ( sessrole == "3") {
+      $.ajax({ 
+	      url: "getReports.php",
+	      type: "post",
+	      data: 'username='+username+'&sessrole='+sessrole+'&sessjobid='+sessjobid,
+         dataType : 'json',
+         success: 
+         function(data){
+            document.getElementById('reports').options.length = 0;
+            console.log(data);
+            var firstProp;
+            for(var key in data) {
+               if(data.hasOwnProperty(key)) {
+                  firstProp = data[key];
+                  break;
+               }
+            }
+            $('#reportNumber').attr("value", firstProp[1]);
+            $('#division').attr("value", firstProp[2]);
+            $('#startDate').attr("value", firstProp[3]);
+            document.getElementById("bis").innerHTML=firstProp[4];
+            $('textarea[name=company]').val(firstProp[5]);
+            $('textarea[name=training]').val(firstProp[6]);
+            $('textarea[name=school]').val(firstProp[7]);
+            $('textarea[name=noteCompany]').val(firstProp[8]);
+            $('textarea[name=noteTraining]').val(firstProp[9]);
+            $('textarea[name=noteSchool]').val(firstProp[10]);
+            $.each(data,function(i){
+               $('#reports').append("<option value="+data[i][0]+">Bericht: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
+               i++;
+            })
+            
+         }
+
+      })
+   }
    $("#reportNumber").attr('readonly', true);
 	$("#reportNumber").css('background-color', '#D5D5D5');
 	  
