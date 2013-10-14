@@ -87,7 +87,7 @@ R::close();
 
 <script>
 $(window).load(function () {
-	$("#reportNumber").attr('readonly', true);
+   $("#reportNumber").attr('readonly', true);
 	$("#reportNumber").css('background-color', '#D5D5D5');
 	  
 	$("#division").attr('readonly', true);
@@ -225,7 +225,7 @@ function enable_change(elem,typ){
 
 
 
-$('#azubi').on('change', function() {
+$('#azubi').on('change', function () {
    var sessrole = <?php echo $_SESSION['role'];?>;
    var sessjobid = <?php echo $_SESSION['jobid'];?>; 
    var sessdept = "<?php echo $_SESSION['dept'];?>"; 
