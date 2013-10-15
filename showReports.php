@@ -176,7 +176,6 @@ $(window).load(function () {
 	$("#signDate").css('background-color', '#D5D5D5');
 		  
 	$("#company").prop("disabled", true); 
-
 	$("#company").css('background-color', '#D5D5D5');
 	
 	$("#training").prop("disabled", true);
@@ -253,8 +252,8 @@ function enable_change(elem,typ){
 		$("#division").attr('readonly', false);
 		$("#division").css('background-color', '#FFFFFF');
 		  
-		$("#signDate").attr('readonly', false);
-		$("#signDate").css('background-color', '#FFFFFF');
+		$("#signDate").attr('readonly', true);
+		$("#signDate").css('background-color', '#D5D5D5');
 			  
 		$("#company").prop("disabled", false);
 		$("#company").css('background-color', '#FFFFFF');

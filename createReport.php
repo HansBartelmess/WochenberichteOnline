@@ -56,6 +56,8 @@ $(function() {
 	});
 	
   });
-  
-  
+$(window).load(function () { 
+   $("#signDate").attr('readonly', true);
+   $("#signDate").css('background-color', '#D5D5D5');
+})
 </script>
