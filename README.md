@@ -9,10 +9,29 @@ für Betreuer vereinfachen.
 
 Todo:
 
+Unterschriften
+Wenn unerschrieben, Unterschriften einblenden ansonsten checkbox.
+Beim Unterzeichnen Kommentare der Ausbilder löschen damit der Betreuer sie nicht sehen kann.
+Kontraste der gesperrten felder (nicht lesbar genug) evtl ändern?
 
-createMenu in include.php umgestalten, Ausbilder und Betreuer createreport nicht anzeigen.
 
-benötigt functions in include.php:
+Text:
+färben Farbpalette? in den Textareas
 
-isBetreuer
-isAusbilder
+
+Formular:
+Bei 2 Berufsgruppen muss ein anderes Formular geladen werden
+
+
+Seiten:
+wir brauchen noch 2 neue Seiten
+
+
+Zukunftsaussichten:
+
+Rechtschreibeprüfung?
+
+
+
+
+
