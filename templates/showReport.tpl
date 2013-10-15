@@ -1,8 +1,5 @@
 {include file="header.tpl" titel="Berichte Anzeigen"}
 {include file="navigation.tpl"}
-{print_r($randomazubi)}
-<br> 
-{print_r($reports)}
 <div id="main">
    <div class="ym-wrapper">
 
@@ -14,7 +11,7 @@
       {/if}
 	  
 	   <form class="ym-form">
-         <h6>Berichte anzeigen</h6>
+         <h6>Nachweis anzeigen</h6>
          <!--
          <div class="ym-fbox">
             <ul>
@@ -24,28 +21,6 @@
             </ul>
          </div> 
          -->
-         <div class="ym-grid ym-columnar">
-            <div class="ym-gbox ym-fbox-select">
-            <label for="reports">Berichte</label>
-            <select name = "reports" id = "reports">
-            {foreach $reports as $row}
-               
-                  {if ($smarty.session.role == "1")} 
-                     <option value="{$row.id}">Bericht {$row.reportNumber} vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <option value=""></option>
-                  {/if}
-            {/foreach}
-            </select>
-            </div>
-         </div>
-
-
-      </form> 
-	  
-
-      <form class="ym-form" method="post">
       {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
@@ -62,7 +37,26 @@
             </div>
          </div>
       {/if}
-		 
+      <div class="ym-grid ym-columnar">
+         <div class="ym-gbox ym-fbox-select">
+         <label for="reports">Nachweise</label>
+         <select name = "reports" id = "reports">
+         {foreach $reports as $row}      
+            {if ($smarty.session.role == "1")} 
+               <option value="{$row.id}">Nachweis {$row.reportNumber} vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
+            {/if}
+            {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+               <option value=""></option>
+            {/if}
+         {/foreach}
+         </select>
+         </div>
+      </div>
+
+      </form> 
+	  
+
+      <form class="ym-form" method="post">
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
 			

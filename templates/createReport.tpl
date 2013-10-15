@@ -14,7 +14,7 @@
 
       <form class="ym-form" method="post">
 
-         <h6>Bericht eintragen</h6>
+         <h6>Nachweis eintragen</h6>
          
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">

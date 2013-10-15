@@ -87,7 +87,7 @@ R::close();
 
 <script>
 $(window).load(function () {
-      var sessrole = <?php echo $_SESSION['role'];?>;
+   var sessrole = <?php echo $_SESSION['role'];?>;
    var sessjobid = <?php echo $_SESSION['jobid'];?>; 
    var sessdept = "<?php echo $_SESSION['dept'];?>"; 
    var username = $("#azubi").val();
@@ -119,7 +119,7 @@ $(window).load(function () {
             $('textarea[name=noteTraining]').val(firstProp[9]);
             $('textarea[name=noteSchool]').val(firstProp[10]);
             $.each(data,function(i){
-               $('#reports').append("<option value="+data[i][0]+">Bericht: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
+               $('#reports').append("<option value="+data[i][0]+">Nachweis: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
                i++;
             })
             
@@ -155,7 +155,7 @@ $(window).load(function () {
             $('textarea[name=noteTraining]').val(firstProp[9]);
             $('textarea[name=noteSchool]').val(firstProp[10]);
             $.each(data,function(i){
-               $('#reports').append("<option value="+data[i][0]+">Bericht: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
+               $('#reports').append("<option value="+data[i][0]+">Nachweis: "+data[i][1]+" vom "+data[i][3]+" - "+data[i][4]+"</option>");
                i++;
             })
             
