@@ -137,9 +137,9 @@
                   {/if}
                </div>
             </div>
-		</div>
+		   </div>
               
-		<div class="ym-full">
+		   <div class="ym-full">
             <div class="ym-g80 ym-gl">
                <div class="ym-fbox-text">
                   <label for="training">Themen von Unterweisungen:</label>
@@ -190,8 +190,8 @@
             </div>
 			
 			
-       </div> 
-     </div> 
+      </div> 
+   </div>
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
                <p class="ym-message">

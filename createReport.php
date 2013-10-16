@@ -29,7 +29,7 @@ if(isset($_POST["submit"]) && isset($_POST['reportNumber']) && isset($_POST['div
 }
 
 
-$smarty->display('templates/createReport.tpl');
+$smarty->display('templates/createReportBios.tpl');
 R::close();
 
 ?>

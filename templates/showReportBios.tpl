@@ -59,7 +59,6 @@
       <form class="ym-form" method="post">
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
-			
 		      	<div class="ym-fbox-text">
                   <label for="change">Bearbeiten:</label>
                   <input type="checkbox" name="change" id="change" onclick="enable_change(this,'{$smarty.session.role}');"/>
