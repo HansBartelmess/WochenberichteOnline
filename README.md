@@ -16,7 +16,9 @@ Kontraste der gesperrten felder (nicht lesbar genug) evtl ändern?
 
 
 Text:
-färben Farbpalette? in den Textareas
+für Textareas
+http://www.jquery4u.com/plugins/10-color-pickers-plugin/
+Nr 4?
 
 
 Formular:
