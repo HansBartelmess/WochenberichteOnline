@@ -605,12 +605,11 @@
             </div>
          </div>
 		</div>
+	</div>
 
 
 
-
-   </div> 
-</div> 
+ 
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
                <p class="ym-message">
