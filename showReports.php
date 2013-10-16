@@ -78,7 +78,7 @@ $reports = R::getAll( 'select * from reports where user_id = 1' );
 
 
 
-$smarty->display('templates/showReport.tpl');
+$smarty->display('templates/showReportBios.tpl');
 R::close();
 
 
