@@ -41,26 +41,28 @@
                   <input type="text" name="signDate" id="signDate" size="25"/>
                </div>
             </div>
-          
+         </div> 
 
-         <div class="ym-full">
+         <div class="ym-grid ym-full">
             <div class="ym-g75 ym-gl">
                <div class="ym-fbox-text">
                   <label for="mondayWork1">Montag:</label>
                   <input type="text" name="mondayWork1" id="mondayWork1" size="75" />
-			      </div>
-		      </div>
+		        </div>
+			</div>
             <div class="ym-g5 ym-gl">
-               <label for="moHours1">Std:</label>
-               <input type="text" name="moHours1" id="moHours1" value="" size="3" />
+               <div class="ym-fbox-text">
+                  <label for="moHours1">Std:</label>
+                  <input type="text" name="moHours1" id="moHours1" value="" size="3" />
+               </div>
             </div>
-			   <div class="ym-g20 ym-gl">   
-			      <div class="ym-fbox-text">
+			<div class="ym-g20 ym-gr">   
+			   <div class="ym-fbox-text">
                   <label for="noteMonday1">Kommentar:</label>
                   <input type="text" name="noteMonday1" id="noteMonday1" size="10" />
                </div>
             </div>
-		   </div>
+		 </div>
          
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
@@ -74,7 +76,7 @@
          <div class="ym-fbox-button">
             <button type="submit" id="submit" name="submit" value="submit" class="ym-button ym-save">Bericht speichern</button>
          </div>
-      </div>
+    
    </form>
 
       
