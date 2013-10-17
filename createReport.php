@@ -59,5 +59,25 @@ $(function() {
 $(window).load(function () { 
    $("#signDate").attr('readonly', true);
    $("#signDate").css('background-color', '#D5D5D5');
-})
+});
+
+$(function() {
+        var scntDiv = $('#mondayWork1');
+        var i = $('#monayWork1 p').size() + 1;
+        
+        $('#addScnt').live('click', function() {
+                $('<p><label for="mondayWork1"><input type="text" id="p_scnt" size="20" name="mondayWork1' + i +'" value="" placeholder="Input Value" /></label> <a href="#" id="remScnt">Remove</a></p>').appendTo(scntDiv);
+                i++;
+                return false;
+        });
+        
+        $('#remScnt').live('click', function() { 
+                if( i > 2 ) {
+                        $(this).parents('p').remove();
+                        i--;
+                }
+                return false;
+        });
+});
+
 </script>

@@ -53,6 +53,7 @@
                      <label for="mondayWork1">Montag:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
+                  <a href="#" id="addScnt">Add</a></h2>
 			      </div>
                <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
