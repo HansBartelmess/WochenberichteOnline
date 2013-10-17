@@ -26,6 +26,10 @@
                   <label for="division">Abteilung:<sup class="ym-required">*</sup></label>
                   <input type="text" name="division" id="division" size="25" required="required" aria-required="true"/>
                </div>
+               <div class="ym-fbox-text">
+                  <label for="betreuer">Betreuer:<sup class="ym-required">*</sup></label>
+                  <input type="text" name="betreuer" id="betreuer" size="25" required="required" aria-required="true"/>
+               </div>
             </div>
 
             <div class="ym-g50 ym-gr">
