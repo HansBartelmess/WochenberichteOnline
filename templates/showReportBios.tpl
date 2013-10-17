@@ -12,15 +12,6 @@
 	  
 	   <form class="ym-form">
          <h6>Nachweis anzeigen</h6>
-         <!--
-         <div class="ym-fbox">
-            <ul>
-               {foreach $reports as $link}
-                  <li><a href="showReports.php?reportNumber={$link.reportNumber}&id={$reports[$activeReport]['user_id']}">{$azubi[0]['name']} {$azubi[0]['surname']} Bericht vom {$link.startDate} - {getEndDateByStart($link.startDate)}</a></li>
-               {/foreach}
-            </ul>
-         </div> 
-         -->
       {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
@@ -111,7 +102,7 @@
                   {/if}
                </div>
             </div>
-         
+
 
          <div class="ym-full">
             <div class="ym-g75 ym-gl">
@@ -123,20 +114,19 @@
                   {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
                      <input type="text" name="mondayWork1" id="mondayWork1" cols="100" />
                   {/if}
-			   </div>
-		   </div>
-         <div class="ym-g5 ym-gl">
-         <label for="moHours1">Std:</label>
-         {if ($smarty.session.role == "1")} 
-            <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
-         {/if}
-         {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-            <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
-         {/if}
-
-         </div>
-			<div class="ym-g20 ym-gl">   
-			   <div class="ym-fbox-text">
+			      </div>
+		      </div>
+            <div class="ym-g5 ym-gl">
+            <label for="moHours1">Std:</label>
+            {if ($smarty.session.role == "1")} 
+               <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
+            {/if}
+            {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+               <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
+            {/if}
+            </div>
+			   <div class="ym-g20 ym-gl">   
+			      <div class="ym-fbox-text">
                   <label for="noteMonday1">Kommentar:</label>
                   {if ($smarty.session.role == "1")} 
                      <input type="text" name="noteMonday1" id="noteMonday1" cols="10" />
@@ -630,8 +620,7 @@
     </form>
    </div>
 </div>
-</div>
-</div>
+
 {include file="footer.tpl"}
 
 

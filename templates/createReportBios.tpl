@@ -16,7 +16,7 @@
 
          <h6>Nachweis eintragen</h6>
          
-         <div class="ym-grid ym-columnar">
+        <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
                <div class="ym-fbox-text">
                   <label for="reportNumber">Ausbildungsnachweis:<sup class="ym-required">*</sup></label>
@@ -41,29 +41,96 @@
                   <input type="text" name="signDate" id="signDate" size="25"/>
                </div>
             </div>
-         </div> 
 
-         <div class="ym-grid ym-full">
-            <div class="ym-g75 ym-gl">
-               <div class="ym-fbox-text">
-                  <label for="mondayWork1">Montag:</label>
-                  <input type="text" name="mondayWork1" id="mondayWork1" size="75" />
-		        </div>
-			</div>
-            <div class="ym-g5 ym-gl">
-               <div class="ym-fbox-text">
-                  <label for="moHours1">Std:</label>
-                  <input type="text" name="moHours1" id="moHours1" value="" size="3" />
-               </div>
-            </div>
-			<div class="ym-g20 ym-gr">   
-			   <div class="ym-fbox-text">
-                  <label for="noteMonday1">Kommentar:</label>
-                  <input type="text" name="noteMonday1" id="noteMonday1" size="10" />
-               </div>
-            </div>
-		 </div>
-         
+
+            <div class="ym-full">
+               <div class="ym-g90 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="mondayWork1">Montag:</label>
+                     <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
+		            </div>
+			      </div>
+               <div class="ym-g10 ym-gr">
+                  <div class="ym-fbox-text">
+                     <label for="moHours1">Std:</label>
+                     <input type="text" name="moHours1" id="moHours1" value="" size="5" />
+                  </div>
+				   </div>
+		      </div>
+
+
+
+            <div class="ym-full">
+               <div class="ym-g90 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="mondayWork1">Dienstag:</label>
+                     <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
+		            </div>
+			      </div>
+               <div class="ym-g10 ym-gr">
+                  <div class="ym-fbox-text">
+                     <label for="moHours1">Std:</label>
+                     <input type="text" name="moHours1" id="moHours1" value="" size="5" />
+                  </div>
+				   </div>
+		      </div>
+
+
+
+            <div class="ym-full">
+               <div class="ym-g90 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="mondayWork1">Mittwoch:</label>
+                     <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
+		            </div>
+			      </div>
+               <div class="ym-g10 ym-gr">
+                  <div class="ym-fbox-text">
+                     <label for="moHours1">Std:</label>
+                     <input type="text" name="moHours1" id="moHours1" value="" size="5" />
+                  </div>
+				   </div>
+		      </div>
+
+
+
+            <div class="ym-full">
+               <div class="ym-g90 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="mondayWork1">Donnerstag:</label>
+                     <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
+		            </div>
+			      </div>
+               <div class="ym-g10 ym-gr">
+                  <div class="ym-fbox-text">
+                     <label for="moHours1">Std:</label>
+                     <input type="text" name="moHours1" id="moHours1" value="" size="5" />
+                  </div>
+				   </div>
+		      </div>
+
+
+
+            <div class="ym-full">
+               <div class="ym-g90 ym-gl">
+                  <div class="ym-fbox-text">
+                     <label for="mondayWork1">Freitag:</label>
+                     <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
+		            </div>
+			      </div>
+               <div class="ym-g10 ym-gr">
+                  <div class="ym-fbox-text">
+                     <label for="moHours1">Std:</label>
+                     <input type="text" name="moHours1" id="moHours1" value="" size="5" />
+                  </div>
+				   </div>
+		      </div>
+
+
+
+
+         </div>
+
          {if $error|default:false}
             <div class="ym-fbox-text ym-error">
                <p class="ym-message">
