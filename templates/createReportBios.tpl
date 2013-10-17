@@ -44,13 +44,13 @@
 
 
             <div class="ym-full">
-               <div class="ym-g90 ym-gl">
+               <div class="ym-g75 ym-gl">
                   <div class="ym-fbox-text">
                      <label for="mondayWork1">Montag:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
 			      </div>
-               <div class="ym-g10 ym-gr">
+               <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
                      <label for="moHours1">Std:</label>
                      <input type="text" name="moHours1" id="moHours1" value="" size="5" />
@@ -61,13 +61,13 @@
 
 
             <div class="ym-full">
-               <div class="ym-g90 ym-gl">
+               <div class="ym-g75 ym-gl">
                   <div class="ym-fbox-text">
                      <label for="mondayWork1">Dienstag:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
 			      </div>
-               <div class="ym-g10 ym-gr">
+               <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
                      <label for="moHours1">Std:</label>
                      <input type="text" name="moHours1" id="moHours1" value="" size="5" />
@@ -78,13 +78,13 @@
 
 
             <div class="ym-full">
-               <div class="ym-g90 ym-gl">
+               <div class="ym-g75 ym-gl">
                   <div class="ym-fbox-text">
                      <label for="mondayWork1">Mittwoch:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
 			      </div>
-               <div class="ym-g10 ym-gr">
+               <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
                      <label for="moHours1">Std:</label>
                      <input type="text" name="moHours1" id="moHours1" value="" size="5" />
@@ -95,13 +95,13 @@
 
 
             <div class="ym-full">
-               <div class="ym-g90 ym-gl">
+               <div class="ym-g75 ym-gl">
                   <div class="ym-fbox-text">
                      <label for="mondayWork1">Donnerstag:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
 			      </div>
-               <div class="ym-g10 ym-gr">
+               <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
                      <label for="moHours1">Std:</label>
                      <input type="text" name="moHours1" id="moHours1" value="" size="5" />
@@ -112,13 +112,13 @@
 
 
             <div class="ym-full">
-               <div class="ym-g90 ym-gl">
+               <div class="ym-g75 ym-gl">
                   <div class="ym-fbox-text">
                      <label for="mondayWork1">Freitag:</label>
                      <input type="text" name="mondayWork1" id="mondayWork1" size="120" />
 		            </div>
 			      </div>
-               <div class="ym-g10 ym-gr">
+               <div class="ym-g25 ym-gr">
                   <div class="ym-fbox-text">
                      <label for="moHours1">Std:</label>
                      <input type="text" name="moHours1" id="moHours1" value="" size="5" />
