@@ -1,5 +1,7 @@
 <?php // Einstiegsseite
 require_once('include.php');
+
+
 EnsureLogin();
 /*
 echo "Kontrollausgaben:<br>";
@@ -20,6 +22,7 @@ $smarty = new Smarty;
 
 CreateMenu($smarty);
 
+$smarty->force_compile = true;
 
 if($_SESSION['role'] == "1") {
    $reports = R::getAll( 'select reports.id, reports.reportNumber, reports.division, reports.startDate, reports.company, reports.training, reports.school, reports.user_id, reports.noteCompany, reports.noteTraining, reports.noteSchool from reports reports, user user where user.username = "'.$_SESSION['username'].'" && user.id = reports.user_id' );
@@ -45,6 +48,21 @@ elseif($_SESSION['role'] == 3) {
       $smarty->assign('randomazubi', $randomazubi);
 }
 
+if($_SESSION['jobid'] == 3) {
+	
+	$sql = "SELECT * FROM bio_report WHERE username='".$_SESSION['username']."' ORDER BY nachweis ";
+	$res = sql($sql);
+	while($rw=mysql_fetch_array($res)) {
+		$date = strtotime($rw['date']);
+		$date = strtotime("+4 day", $date);
+		$NARR[] = $rw['nachweis']." - ".$rw['date']." bis ".date('d.m.Y', $date);
+	}
+	$smarty->assign("NACHWEIS" , $NARR);
+	$smarty->display('templates/showReportBios.tpl');
+}
+else {
+	$smarty->display('templates/showReport.tpl');
+}
 
 //Functions:
 function getEndDate($activeReport) {
@@ -78,7 +96,7 @@ $reports = R::getAll( 'select * from reports where user_id = 1' );
 
 
 
-$smarty->display('templates/showReportBios.tpl');
+
 R::close();
 
 
@@ -86,6 +104,53 @@ R::close();
 
 
 <script>
+
+
+$("#bioselect").change(function(){
+	var v = $(this).val();
+	var s = v.split('-');
+	var nachweis = s[0];
+    
+	$("#mondiv").find("[id^=monOut]").remove();
+	$("#montimediv").find("[id^=monOuttime]").remove();
+	$("#komdiv").find("[id^=komout]").remove();
+	$("#montimediv").find("[id^=outdivmon]").remove();
+	$("#mondiv").find("[id^=outdivmonX]").remove();
+
+	$("#LOADING").fadeIn('fast');
+	
+    $.getJSON( "getReports_bio.php?nachweis="+nachweis, function( data ) {
+		
+		var monL = data.mon['work'].length;
+		for ( var i = 0; i < monL; i++ ) {
+
+			if(i >= 1) {
+				$("#LOADING").fadeOut('fast');
+				$("#mondiv").append('<div id="outdivmonX'+i+'" class="ym-fbox-text"><input id="monOut'+i+'" type="text"></div>');
+				$("#monOut"+i).val(data.mon['work'][i]);
+				
+				$("#montimediv").append('<div id="outdivmon'+i+'" class="ym-fbox-text"><input type="text" id="monOuttime'+i+'" value="" size="2"/></div>');
+				$("#monOuttime"+i).val(data.mon['time'][i]);
+				
+				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				
+				
+			}
+			else {
+				$("#LOADING").fadeOut('fast');
+				$("#monWork0").val(data.mon['work'][0]);
+				$("#monHours0").val(data.mon['time'][0]);
+				
+			}
+
+		}
+
+	})
+})
+
+
+
+
 $(window).load(function () {
    var sessrole = <?php echo $_SESSION['role'];?>;
    var sessjobid = <?php echo $_SESSION['jobid'];?>; 

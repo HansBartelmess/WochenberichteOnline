@@ -420,4 +420,17 @@
 		text-shadow: none;
 		position: static;
 	}
+	
+	  .ym-button.ym-xlarge {
+    font-size: 1.5em;
+  }
+  .ym-button.ym-large {
+    font-size: 1.2857em;
+  }
+  .ym-button.ym-small {
+    font-size: 0.8571em;
+  }
+  .ym-button.ym-xsmall {
+    font-size: 0.7143em;
+  }
 }

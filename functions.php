@@ -6,7 +6,7 @@ function sql($sql) {
      require_once('config.php');
 
    $mysql_username = 'root';
-   $mysql_password = '';
+   $mysql_password = 'Lin87ux';
    $mysql_host     = 'localhost';
    $mysql_dbname   = 'berichtsheftonline'; 
    

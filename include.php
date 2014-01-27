@@ -11,7 +11,19 @@ $latexpdf_path    = '';
 $output_directory = '';
 require_once('config.php');
 
+function sql($sql) {
+     require_once('config.php');
 
+   $mysql_username = 'root';
+   $mysql_password = 'Lin87ux';
+   $mysql_host     = 'localhost';
+   $mysql_dbname   = 'berichtsheftonline'; 
+   
+   $conn=mysql_pconnect($mysql_host,$mysql_username,$mysql_password) or die("sql: no mysql conn ".date("Y-m-d H:i:s")." ");
+		mysql_select_db($mysql_dbname); 
+		
+		return mysql_query($sql,$conn);
+   }
 
 function CheckLogin () 
 {

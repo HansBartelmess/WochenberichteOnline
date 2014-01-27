@@ -238,6 +238,8 @@
 	.ym-gl { float:left; margin: 0; }
 	.ym-gr { float:right; margin: 0 0 0 -5px; }
 
+	.ym-g5 { width:5%; }
+	.ym-g10 { width:10%; }
 	.ym-g20 { width:20%; }
 	.ym-g40 { width:40%; }
 	.ym-g60 { width:60%; }

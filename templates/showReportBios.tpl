@@ -31,7 +31,17 @@
          <div class="ym-grid ym-columnar">
             <div class="ym-gbox ym-fbox-select">
             <label for="reports">Nachweise</label>
-            <select name = "reports" id = "reports">
+           
+			<select id="bioselect">
+				<option></option>
+				{foreach from=$NACHWEIS item=items}
+					<option>{$items}</option>
+				{/foreach}
+			</select>
+
+
+
+		   <!-- <select name = "reports" id = "reports">
             {foreach $reports as $row}      
                {if ($smarty.session.role == "1")} 
                   <option value="{$row.id}">Nachweis {$row.reportNumber} vom {$row.startDate} - {getEndDateByStart($row.startDate)}</option>
@@ -40,14 +50,17 @@
                   <option value=""></option>
                {/if}
             {/foreach}
-            </select>
+            </select> -->
             </div>
          </div>
 
       </form> 
 	  
-
+	  
+	 
       <form class="ym-form" method="post">
+	  <div style="postition: relative; ">	  
+	  <div id="LOADING" style="display: none; background-size: 10%; background-position:50% 50%; position: absolute; background-color: black; background-image: url('img/ajax_loader_blue.gif'); background-repeat: no-repeat; opacity: 0.4; width: 100%; height: 100%;z-index: 100000; "></div>
          <div class="ym-grid ym-columnar">
             <div class="ym-g50 ym-gl">
 		      	<div class="ym-fbox-text">
@@ -104,103 +117,34 @@
             </div>
 
 
-         <div class="ym-full">
-            <div class="ym-g75 ym-gl">
-               <div class="ym-fbox-text">
-                  <label for="mondayWork1">Montag:</label>
-                  {if ($smarty.session.role == "1")} 
-                     <input type="text" name="mondayWork1" id="mondayWork1" cols="100"/>
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="mondayWork1" id="mondayWork1" cols="100" />
-                  {/if}
-			      </div>
-		      </div>
-            <div class="ym-g5 ym-gl">
-            <label for="moHours1">Std:</label>
-            {if ($smarty.session.role == "1")} 
-               <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
-            {/if}
-            {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-               <input type="text" name="moHours1" id="moHours1" value="" size="3"/>
-            {/if}
-            </div>
-			   <div class="ym-g20 ym-gl">   
-			      <div class="ym-fbox-text">
+        <div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="mondiv" class="ym-fbox-text">
+					<div class="ym-fbox-text">
+						<label for="monWork0">Montag:</label>
+							<input type="text" name="monWork0" id="monWork0" cols="80" />
+					</div>  
+				</div>	  
+		    </div>
+            <div id="montimediv" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="monHours0">Std:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="monHours0" id="monHours0" value="" size="2"/>
+					</div>
+			</div>
+			   <!-- <div class="ym-g1 ym-gl">   
+			      <div id="komdiv" class="ym-fbox-text">
                   <label for="noteMonday1">Kommentar:</label>
                   {if ($smarty.session.role == "1")} 
-                     <input type="text" name="noteMonday1" id="noteMonday1" cols="10" />
+                     <input type="text" name="noteMonday1" id="noteMonday1" cols="8" />
                   {/if}
                   {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="noteMonday1" id="noteMonday1" cols="10" />
+                     <input type="text" name="noteMonday1" id="noteMonday1" cols="8" />
                   {/if}
                </div>
-            </div>
+            </div> -->
 		</div>
-      <div class="ym-full">
-            <div class="ym-g75 ym-gl">
-               <div class="ym-fbox-text">
-                  {if ($smarty.session.role == "1")} 
-                     <input type="text" name="mondayWork2" id="mondayWork2" cols="100"/>
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="mondayWork2" id="mondayWork2" cols="100" />
-                  {/if}
-			   </div>
-		   </div>
-         <div class="ym-g5 ym-gl">
-         {if ($smarty.session.role == "1")} 
-            <input type="text" name="moHours2" id="moHours2" value="" size="3"/>
-         {/if}
-         {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-            <input type="text" name="moHours2" id="moHours2" value="" size="3"/>
-         {/if}
-
-         </div>
-			<div class="ym-g20 ym-gl">   
-			   <div class="ym-fbox-text">
-                  {if ($smarty.session.role == "1")} 
-                     <input type="text" name="noteMonday2" id="noteMonday2" cols="10" />
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="noteMonday2" id="noteMonday2" cols="10" />
-                  {/if}
-               </div>
-            </div>
-		</div>
-      <div class="ym-full">
-         <div class="ym-g75 ym-gl">
-            <div class="ym-fbox-text">
-                  {if ($smarty.session.role == "1")} 
-                     <input type="text" name="mondayWork3" id="mondayWork3" cols="100"/>
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="mondayWork3" id="mondayWork3" cols="100" />
-                  {/if}
-			   </div>
-		   </div>
-         <div class="ym-g5 ym-gl">
-         {if ($smarty.session.role == "1")} 
-            <input type="text" name="moHours3" id="moHours3" value="" size="3"/>
-         {/if}
-         {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-            <input type="text" name="moHours3" id="moHours3" value="" size="3"/>
-         {/if}
-
-         </div>
-			<div class="ym-g20 ym-gl">   
-			   <div class="ym-fbox-text">
-                  {if ($smarty.session.role == "1")} 
-                     <input type="text" name="noteMonday3" id="noteMonday3" cols="10" />
-                  {/if}
-                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="noteMonday3" id="noteMonday3" cols="10" />
-                  {/if}
-            </div>
-         </div>
-		</div>
-
-
+   
 
          <div class="ym-full">
             <div class="ym-g75 ym-gl">
@@ -596,7 +540,7 @@
          </div>
 		</div>
 	</div>
-
+</div>
 
 
  
