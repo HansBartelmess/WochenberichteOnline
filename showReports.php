@@ -115,7 +115,31 @@ $("#bioselect").change(function(){
 	$("#montimediv").find("[id^=monOuttime]").remove();
 	$("#komdiv").find("[id^=komout]").remove();
 	$("#montimediv").find("[id^=outdivmon]").remove();
-	$("#mondiv").find("[id^=outdivmonX]").remove();
+   $("#mondiv").find("[id^=outdivmonX]").remove();
+
+   $("#diediv").find("[id^=dieOut]").remove();
+	$("#dietimediv").find("[id^=dieOuttime]").remove();
+	$("#komdiv").find("[id^=komout]").remove();
+	$("#dietimediv").find("[id^=outdivdie]").remove();
+   $("#diediv").find("[id^=outdivdieX]").remove();
+
+   $("#mitdiv").find("[id^=mitOut]").remove();
+	$("#mittimediv").find("[id^=mitOuttime]").remove();
+	$("#komdiv").find("[id^=komout]").remove();
+	$("#mittimediv").find("[id^=outdivmit]").remove();
+   $("#mitdiv").find("[id^=outdivmitX]").remove();
+
+   $("#dondiv").find("[id^=donOut]").remove();
+	$("#dontimediv").find("[id^=donOuttime]").remove();
+	$("#komdiv").find("[id^=komout]").remove();
+	$("#dontimediv").find("[id^=outdivdon]").remove();
+   $("#dondiv").find("[id^=outdivdonX]").remove();
+
+   $("#freidiv").find("[id^=freiOut]").remove();
+	$("#freitimediv").find("[id^=freiOuttime]").remove();
+	$("#komdiv").find("[id^=komout]").remove();
+	$("#freitimediv").find("[id^=outdivfrei]").remove();
+   $("#freidiv").find("[id^=outdivfreiX]").remove();
 
 	$("#LOADING").fadeIn('fast');
 	
@@ -143,7 +167,100 @@ $("#bioselect").change(function(){
 				
 			}
 
+      }
+      var dieL = data.die['work'].length;
+		for ( var i = 0; i < dieL; i++ ) {
+
+			if(i >= 1) {
+				$("#LOADING").fadeOut('fast');
+				$("#diediv").append('<div id="outdivdieX'+i+'" class="ym-fbox-text"><input id="dieOut'+i+'" type="text"></div>');
+				$("#dieOut"+i).val(data.die['work'][i]);
+				
+				$("#dietimediv").append('<div id="outdivdie'+i+'" class="ym-fbox-text"><input type="text" id="dieOuttime'+i+'" value="" size="2"/></div>');
+				$("#dieOuttime"+i).val(data.die['time'][i]);
+				
+				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				
+				
+			}
+			else {
+				$("#LOADING").fadeOut('fast');
+				$("#dieWork0").val(data.die['work'][0]);
+				$("#dieHours0").val(data.die['time'][0]);
+				
+			}
+
 		}
+      var mitL = data.mit['work'].length;
+		for ( var i = 0; i < mitL; i++ ) {
+
+			if(i >= 1) {
+				$("#LOADING").fadeOut('fast');
+				$("#mitdiv").append('<div id="outdivmitX'+i+'" class="ym-fbox-text"><input id="mitOut'+i+'" type="text"></div>');
+				$("#mitOut"+i).val(data.mit['work'][i]);
+				
+				$("#mittimediv").append('<div id="outdivmit'+i+'" class="ym-fbox-text"><input type="text" id="mitOuttime'+i+'" value="" size="2"/></div>');
+				$("#mitOuttime"+i).val(data.mit['time'][i]);
+				
+				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				
+				
+			}
+			else {
+				$("#LOADING").fadeOut('fast');
+				$("#mitWork0").val(data.mit['work'][0]);
+				$("#mitHours0").val(data.mit['time'][0]);
+				
+			}
+
+      }
+
+      var donL = data.don['work'].length;
+		for ( var i = 0; i < donL; i++ ) {
+
+			if(i >= 1) {
+				$("#LOADING").fadeOut('fast');
+				$("#dondiv").append('<div id="outdivdonX'+i+'" class="ym-fbox-text"><input id="donOut'+i+'" type="text"></div>');
+				$("#donOut"+i).val(data.don['work'][i]);
+				
+				$("#dontimediv").append('<div id="outdivdon'+i+'" class="ym-fbox-text"><input type="text" id="donOuttime'+i+'" value="" size="2"/></div>');
+				$("#donOuttime"+i).val(data.don['time'][i]);
+				
+				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				
+				
+			}
+			else {
+				$("#LOADING").fadeOut('fast');
+				$("#donWork0").val(data.don['work'][0]);
+				$("#donHours0").val(data.don['time'][0]);
+				
+			}
+
+      }
+      var freiL = data.frei['work'].length;
+		for ( var i = 0; i < freiL; i++ ) {
+
+			if(i >= 1) {
+				$("#LOADING").fadeOut('fast');
+				$("#freidiv").append('<div id="outdivfreiX'+i+'" class="ym-fbox-text"><input id="freiOut'+i+'" type="text"></div>');
+				$("#freiOut"+i).val(data.frei['work'][i]);
+				
+				$("#freitimediv").append('<div id="outdivfrei'+i+'" class="ym-fbox-text"><input type="text" id="freiOuttime'+i+'" value="" size="2"/></div>');
+				$("#freiOuttime"+i).val(data.frei['time'][i]);
+				
+				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				
+				
+			}
+			else {
+				$("#LOADING").fadeOut('fast');
+				$("#freiWork0").val(data.frei['work'][0]);
+				$("#freiHours0").val(data.frei['time'][0]);
+				
+			}
+
+      }
 
 	})
 })

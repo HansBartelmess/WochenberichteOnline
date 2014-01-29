@@ -146,7 +146,25 @@
 		</div>
    
 
-         <div class="ym-full">
+
+<div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="diediv" class="ym-fbox-text">
+					<div class="ym-fbox-text">
+						<label for="dieWork0">Dienstag:</label>
+							<input type="text" name="dieWork0" id="dieWork0" cols="80" />
+					</div>  
+				</div>	  
+		    </div>
+            <div id="dietimediv" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="dieHours0">Std:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="dieHours0" id="dieHours0" value="" size="2"/>
+					</div>
+			   </div>
+</div>
+
+     <!--    <div class="ym-full">
             <div class="ym-g75 ym-gl">
                <div class="ym-fbox-text">
                   <label for="tuesdayWork1">Dienstag:</label>
@@ -179,8 +197,10 @@
                   {/if}
                </div>
             </div>
-		</div>
-      <div class="ym-full">
+		</div>-->
+
+
+<!--      <div class="ym-full">
             <div class="ym-g75 ym-gl">
                <div class="ym-fbox-text">
                   {if ($smarty.session.role == "1")} 
@@ -241,10 +261,27 @@
                   {/if}
             </div>
          </div>
-		</div>
+		</div>-->
+
+<div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="mitdiv" class="ym-fbox-text">
+					<div class="ym-fbox-text">
+						<label for="mitWork0">Mittwoch:</label>
+							<input type="text" name="mitWork0" id="mitWork0" cols="80" />
+					</div>  
+				</div>	  
+		    </div>
+            <div id="mittimediv" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="mitHours0">Std:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="mitHours0" id="mitHours0" value="" size="2"/>
+					</div>
+			   </div>
+</div>
 
 
-
+<!--
          <div class="ym-full">
             <div class="ym-g75 ym-gl">
                <div class="ym-fbox-text">
@@ -341,8 +378,29 @@
             </div>
          </div>
 		</div>
+-->
 
 
+<div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="dondiv" class="ym-fbox-text">
+					<div class="ym-fbox-text">
+						<label for="donWork0">Donnerstag:</label>
+							<input type="text" name="donWork0" id="donWork0" cols="80" />
+					</div>  
+				</div>	  
+		    </div>
+            <div id="dontimediv" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="donHours0">Std:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="donHours0" id="donHours0" value="" size="2"/>
+					</div>
+			   </div>
+</div>
+
+
+
+<!--
 
          <div class="ym-full">
             <div class="ym-g75 ym-gl">
@@ -439,10 +497,28 @@
                   {/if}
             </div>
          </div>
-		</div>
+		</div>-->
 
 
 
+<div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="freidiv" class="ym-fbox-text">
+					<div class="ym-fbox-text">
+						<label for="freiWork0">Freitag:</label>
+							<input type="text" name="freiWork0" id="freiWork0" cols="80" />
+					</div>  
+				</div>	  
+		    </div>
+            <div id="freitimediv" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="freiHours0">Std:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="freiHours0" id="freiHours0" value="" size="2"/>
+					</div>
+			   </div>
+</div>
+
+<!--
          <div class="ym-full">
             <div class="ym-g75 ym-gl">
                <div class="ym-fbox-text">
@@ -538,7 +614,8 @@
                   {/if}
             </div>
          </div>
-		</div>
+		</div>-->
+
 	</div>
 </div>
 
