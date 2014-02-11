@@ -113,7 +113,7 @@ $("#bioselect").change(function(){
     
 	$("#mondiv").find("[id^=monOut]").remove();
 	$("#montimediv").find("[id^=monOuttime]").remove();
-	$("#komdiv").find("[id^=komout]").remove();
+	$("#kommon").find("[id^=kommonout]").remove();
 	$("#montimediv").find("[id^=outdivmon]").remove();
    $("#mondiv").find("[id^=outdivmonX]").remove();
 
@@ -143,10 +143,20 @@ $("#bioselect").change(function(){
 
 	$("#LOADING").fadeIn('fast');
 	
-    $.getJSON( "getReports_bio.php?nachweis="+nachweis, function( data ) {
-		
+	$.getJSON( "getReports_bio.php?iid=2&nachweis="+nachweis, function( data ) {
+		$("#reportNumber").val(data.nachweis);
+		$("#division").val(data.dept);
+		$("#startDate").val(data.date);
+		$("#bis").html(data.bis);
+		$("#signDate").val(data.updated);
+	});
+	
+    $.getJSON( "getReports_bio.php?iid=1&nachweis="+nachweis, function( data ) {
+
+      var gestime = 0;   
 		var monL = data.mon['work'].length;
 		for ( var i = 0; i < monL; i++ ) {
+         gestime = gestime + parseInt(data.mon['time'][i]);
 
 			if(i >= 1) {
 				$("#LOADING").fadeOut('fast');
@@ -154,13 +164,14 @@ $("#bioselect").change(function(){
 				$("#monOut"+i).val(data.mon['work'][i]);
 				
 				$("#montimediv").append('<div id="outdivmon'+i+'" class="ym-fbox-text"><input type="text" id="monOuttime'+i+'" value="" size="2"/></div>');
-				$("#monOuttime"+i).val(data.mon['time'][i]);
+            $("#monOuttime"+i).val(data.mon['time'][i]);
 				
-				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				$("#komdivmon").append('<div id="kommon'+i+'" class="ym-fbox-text"><input type="text" id="kommonout'+i+' " /></div>');
 				
 				
 			}
-			else {
+         else {
+
 				$("#LOADING").fadeOut('fast');
 				$("#monWork0").val(data.mon['work'][0]);
 				$("#monHours0").val(data.mon['time'][0]);
@@ -168,8 +179,12 @@ $("#bioselect").change(function(){
 			}
 
       }
+
       var dieL = data.die['work'].length;
-		for ( var i = 0; i < dieL; i++ ) {
+      for ( var i = 0; i < dieL; i++ ) {
+         if(data.die['time'][0] != ""){
+            gestime = gestime + parseInt(data.die['time'][i]);
+         }
 
 			if(i >= 1) {
 				$("#LOADING").fadeOut('fast');
@@ -179,7 +194,7 @@ $("#bioselect").change(function(){
 				$("#dietimediv").append('<div id="outdivdie'+i+'" class="ym-fbox-text"><input type="text" id="dieOuttime'+i+'" value="" size="2"/></div>');
 				$("#dieOuttime"+i).val(data.die['time'][i]);
 				
-				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				$("#komdivdie").append('<div id="komdie'+i+'" class="ym-fbox-text"><input type="text" id="komdieout'+i+' " cols="2" /></div>');
 				
 				
 			}
@@ -192,7 +207,10 @@ $("#bioselect").change(function(){
 
 		}
       var mitL = data.mit['work'].length;
-		for ( var i = 0; i < mitL; i++ ) {
+      for ( var i = 0; i < mitL; i++ ) {
+         if(data.mit['time'][0] != ""){
+            gestime = gestime + parseInt(data.mit['time'][i]);
+         }
 
 			if(i >= 1) {
 				$("#LOADING").fadeOut('fast');
@@ -202,7 +220,7 @@ $("#bioselect").change(function(){
 				$("#mittimediv").append('<div id="outdivmit'+i+'" class="ym-fbox-text"><input type="text" id="mitOuttime'+i+'" value="" size="2"/></div>');
 				$("#mitOuttime"+i).val(data.mit['time'][i]);
 				
-				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				$("#komdivmit").append('<div id="kommit'+i+'" class="ym-fbox-text"><input type="text" id="kommitout'+i+' " cols="2" /></div>');
 				
 				
 			}
@@ -216,7 +234,10 @@ $("#bioselect").change(function(){
       }
 
       var donL = data.don['work'].length;
-		for ( var i = 0; i < donL; i++ ) {
+      for ( var i = 0; i < donL; i++ ) {
+         if(data.don['time'][0] != ""){
+            gestime = gestime + parseInt(data.don['time'][i]);
+         }
 
 			if(i >= 1) {
 				$("#LOADING").fadeOut('fast');
@@ -226,7 +247,7 @@ $("#bioselect").change(function(){
 				$("#dontimediv").append('<div id="outdivdon'+i+'" class="ym-fbox-text"><input type="text" id="donOuttime'+i+'" value="" size="2"/></div>');
 				$("#donOuttime"+i).val(data.don['time'][i]);
 				
-				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				$("#komdivdon").append('<div id="komdon'+i+'" class="ym-fbox-text"><input type="text" id="komdonout'+i+' " cols="2" /></div>');
 				
 				
 			}
@@ -239,7 +260,10 @@ $("#bioselect").change(function(){
 
       }
       var freiL = data.frei['work'].length;
-		for ( var i = 0; i < freiL; i++ ) {
+      for ( var i = 0; i < freiL; i++ ) {
+         if(data.mit['time'][0] != ""){
+            gestime = gestime + parseInt(data.frei['time'][i]);
+         }
 
 			if(i >= 1) {
 				$("#LOADING").fadeOut('fast');
@@ -249,7 +273,7 @@ $("#bioselect").change(function(){
 				$("#freitimediv").append('<div id="outdivfrei'+i+'" class="ym-fbox-text"><input type="text" id="freiOuttime'+i+'" value="" size="2"/></div>');
 				$("#freiOuttime"+i).val(data.frei['time'][i]);
 				
-				$("#komdiv").append('<input type="text" id="komout'+i+' " cols="2" />');
+				$("#komdivfrei").append('<div id="komfrei'+i+'" class="ym-fbox-text"><input type="text" id="komfreiout'+i+' " cols="2" /></div>');
 				
 				
 			}
@@ -261,8 +285,8 @@ $("#bioselect").change(function(){
 			}
 
       }
-
-	})
+      $("#gesamttime").val(gestime);
+    })
 })
 
 

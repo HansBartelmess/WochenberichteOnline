@@ -131,19 +131,20 @@
 					<div class="ym-fbox-text">
 						<input type="text" name="monHours0" id="monHours0" value="" size="2"/>
 					</div>
-			</div>
-			   <!-- <div class="ym-g1 ym-gl">   
-			      <div id="komdiv" class="ym-fbox-text">
-                  <label for="noteMonday1">Kommentar:</label>
+			   </div>
+ 
+			      <div id="komdivmon" class="ym-fbox-text ym-g20 ym-gl">
+                  <label for="kommonout0">Kommentar:</label>
+                  <div class="ym-fbox-text">
                   {if ($smarty.session.role == "1")} 
-                     <input type="text" name="noteMonday1" id="noteMonday1" cols="8" />
+                     <input type="text" name="kommonout0" id="kommonout0"  />
                   {/if}
                   {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
-                     <input type="text" name="noteMonday1" id="noteMonday1" cols="8" />
+                     <input type="text" name="kommonout0" id="kommonout0"  />
                   {/if}
+                  </div>
                </div>
-            </div> -->
-		</div>
+		   </div>
    
 
 
@@ -162,6 +163,17 @@
 						<input type="text" name="dieHours0" id="dieHours0" value="" size="2"/>
 					</div>
 			   </div>
+            <div id="komdivdie" class="ym-fbox-text ym-g20 ym-gl">
+                  <label for="komdieout0">Kommentar:</label>
+                  <div class="ym-fbox-text">
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="komdieout0" id="komdieout0"  />
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="komdieout0" id="komdieout0"  />
+                  {/if}
+                  </div>
+               </div>
 </div>
 
      <!--    <div class="ym-full">
@@ -278,6 +290,17 @@
 						<input type="text" name="mitHours0" id="mitHours0" value="" size="2"/>
 					</div>
 			   </div>
+            <div id="komdivmit" class="ym-fbox-text ym-g20 ym-gl">
+                  <label for="kommitout0">Kommentar:</label>
+                  <div class="ym-fbox-text">
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="kommitout0" id="kommitout0"  />
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="kommitout0" id="kommitout0"  />
+                  {/if}
+                  </div>
+               </div>
 </div>
 
 
@@ -396,6 +419,17 @@
 						<input type="text" name="donHours0" id="donHours0" value="" size="2"/>
 					</div>
 			   </div>
+               <div id="komdivdon" class="ym-fbox-text ym-g20 ym-gl">
+                  <label for="komdonout0">Kommentar:</label>
+                  <div class="ym-fbox-text">
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="komdonout0" id="komdonout0"  />
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="komdonout0" id="komdonout0"  />
+                  {/if}
+                  </div>
+               </div>
 </div>
 
 
@@ -514,6 +548,33 @@
             	<label for="freiHours0">Std:</label>
 					<div class="ym-fbox-text">
 						<input type="text" name="freiHours0" id="freiHours0" value="" size="2"/>
+					</div>
+			   </div>
+            <div id="komdivfrei" class="ym-fbox-text ym-g20 ym-gl">
+                  <label for="komfreiout0">Kommentar:</label>
+                  <div class="ym-fbox-text">
+                  {if ($smarty.session.role == "1")} 
+                     <input type="text" name="komfreiout0" id="komfreiout0"  />
+                  {/if}
+                  {if ($smarty.session.role == "2" || $smarty.session.role == "3")}
+                     <input type="text" name="komfreiout0" id="komfreiout0"  />
+                  {/if}
+                  </div>
+               </div>
+</div>
+
+
+<div class="ym-full">
+			<div class="ym-g66 ym-gl">
+				<div id="gesamt" class="ym-fbox-text hidden">
+					<div class="ym-fbox-text hidden">
+					</div>  
+				</div>	  
+		    </div>
+            <div id="gesamtTime" class="ym-fbox-text ym-g10 ym-gl ">
+            	<label for="gesamttime">GesamtStd:</label>
+					<div class="ym-fbox-text">
+						<input type="text" name="gesamttime" id="gesamttime" value="" size="2"/>
 					</div>
 			   </div>
 </div>
